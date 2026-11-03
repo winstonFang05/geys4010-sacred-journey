@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="zh-Hant-HK">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="尋聖之旅以故事地圖記錄香港的地方歷史與社區記憶。">
+  <title>尋聖之旅 · Sacred Journey</title>
+  <link rel="icon" href="./assets/compass.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="./styles.css">
+  <script src="./app.js" type="module"></script>
+</head>
+<body>
+  <a class="skip" href="#main" data-copy="skip">跳至內容</a>
+  <header class="site-header" id="top">
+    <div class="wrap header-inner">
+      <a class="brand" href="#top">
+        <img src="./assets/compass.svg" width="39" height="39" alt="">
+        <span>尋聖之旅<small>SACRED JOURNEY</small></span>
+      </a>
+      <nav aria-label="主要導覽">
+        <a href="#map" data-copy="navMap">故事地圖</a>
+        <a href="#stories" data-copy="navStories">故事檔案</a>
+        <a href="#contribute" data-copy="navContribute">分享線索</a>
+      </nav>
+      <button id="language" class="language" type="button" lang="en">EN</button>
+    </div>
+  </header>
+  <main id="main">
+    <section class="hero wrap">
+      <div class="hero-copy">
+        <p class="eyebrow"><span></span><span data-copy="eyebrow">香港社區文化地圖</span></p>
+        <h1 data-copy="headline">在香港，<br>尋一段地方故事。</h1>
+        <p class="intro" data-copy="intro">從村校、老街到街坊熟悉的日常空間，沿着地圖閱讀香港的地方歷史與社區記憶。</p>
+        <div class="actions">
+          <a class="primary" href="#map"><span data-copy="explore">探索故事地圖</span><span aria-hidden="true">↘</span></a>
+          <a class="text-link" href="#about" data-copy="navAbout">關於計劃</a>
+        </div>
+        <p class="edition"><span>01</span><span data-copy="edition">GEYS4010 · 小組原型</span></p>
+      </div>
+      <figure id="map" class="atlas">
+        <figcaption><span data-copy="mapCaption">香港 · 地區示意</span><span>FIELD MAP / 01</span></figcaption>
+        <div class="map-area">
+          <img src="./assets/atlas.svg" alt="" width="640" height="400">
+          <span class="region north" data-copy="nt">新界</span>
+          <span class="region central" data-copy="kowloon">九龍</span>
+          <span class="region island" data-copy="hk">香港島</span>
+          <span class="region water" data-copy="harbour">維多利亞港</span>
+          <span class="north-arrow" aria-hidden="true">↑<br>N</span>
+          <div id="pins" class="pins"></div>
+        </div>
+        <div class="map-footer">
+          <p data-copy="mapNote">點選編號閱讀故事。標記只代表大致地區。</p>
+          <span data-copy="mapLimit">僅供閱讀</span>
+        </div>
+      </figure>
+    </section>
+    <section id="stories" class="archive">
+      <div class="wrap">
+        <p class="eyebrow"><span></span><span data-copy="archiveLabel">地方誌 / 01</span></p>
+        <div class="section-head">
+          <div><h2 data-copy="storiesTitle">沿着地方，讀故事</h2><p data-copy="storiesIntro">三則公開資料示例，從檔案、地方研究和街坊口述出發。</p></div>
+          <label class="search-label"><span data-copy="search">搜尋故事</span><input id="search" type="search" placeholder="地名、題材或關鍵字"></label>
+        </div>
+        <div id="filters" class="filters" role="group" aria-label="故事分類"></div>
+        <p id="result-count" class="result-count" role="status"></p>
+        <div id="cards" class="cards"></div>
+        <noscript>請啟用 JavaScript 以使用地圖與故事檔案。 Enable JavaScript to explore the map and archive.</noscript>
+      </div>
+    </section>
+    <div class="wrap closing">
+      <section id="about">
+        <p class="eyebrow"><span></span><span data-copy="aboutLabel">關於尋聖</span></p>
+        <h2 data-copy="aboutTitle">地方由記憶留下來</h2>
+        <p data-copy="aboutBody">尋聖之旅是香港中文大學 GEYS4010 的小組計劃，關注香港較少被看見的地方文化。這項非宗教計劃以檔案和社區記憶互相參照，記下資料的出處與仍待核實的細節。</p>
+        <p data-copy="visit">示例只供閱讀。實地導賞、拍攝及公開位置須先與相關社區和場地管理者商議。</p>
+      </section>
+      <section id="contribute" class="contribute">
+        <p class="eyebrow"><span></span><span data-copy="contributeLabel">社區參與</span></p>
+        <h2 data-copy="contributeTitle">留下一條故事線索</h2>
+        <p data-copy="contributeBody">一段回憶、一張有權分享的舊相片，或一份可以查閱的資料，都可以成為故事的起點。請先略去個人資料及不宜公開的位置。</p>
+        <p data-copy="contributeStatus">原型暫未開放收件。你可以下載空白模板，在自己的裝置上整理草稿。</p>
+        <a id="template" class="primary" href="./assets/story-template-zh.txt" download><span data-copy="download">下載草稿模板</span><span aria-hidden="true">↓</span></a>
+      </section>
+    </div>
+  </main>
+  <footer class="wrap footer"><span>尋聖之旅 / SACRED JOURNEY</span><span>GEYS4010 · Group A09</span></footer>
+  <dialog id="story" aria-labelledby="story-title">
+    <div class="dialog-inner">
+      <form method="dialog"><button class="close" type="submit" data-copy="close">關閉</button></form>
+      <div id="story-content"></div>
+    </div>
+  </dialog>
+</body>
+</html>
