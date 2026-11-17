@@ -1,13 +1,13 @@
 const {chromium}=require('playwright');
 const assert=require('node:assert/strict');
 (async()=>{
-const browser=await chromium.launch({headless:true,executablePath:'/usr/bin/chromium',args:['--no-sandbox']});
+const browser=await chromium.launch({headless:true,executablePath:'/usr/bin/chromium'});
 const page=await browser.newPage({viewport:{width:1365,height:1000}});
 const errors=[];page.on('pageerror',e=>errors.push(e.message));
 await page.goto('http://127.0.0.1:8765/',{waitUntil:'networkidle'});
 await page.screenshot({path:'evidence/desktop.png',fullPage:true});
 assert.equal(await page.locator('.story-card').count(),3);
-assert.equal(await page.locator('.story-marker').count(),0);
+assert.equal(await page.locator('.story-marker').count(),3);
 assert.ok(await page.locator('.leaflet-control-attribution').textContent());
 await page.fill('#search','牛池灣');assert.equal(await page.locator('.story-card').count(),1);
 await page.locator('.story-card h3 a').click();await page.waitForSelector('#detail-view:not([hidden])');
@@ -21,12 +21,9 @@ assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth<=inner
 await page.screenshot({path:'evidence/mobile.png',fullPage:true});
 await page.locator('.story-card h3 a').first().click();await page.screenshot({path:'evidence/detail-mobile.png',fullPage:true});
 await page.goBack();await page.waitForSelector('#home-view:not([hidden])');await page.goForward();await page.waitForSelector('#detail-view:not([hidden])');
-// Inject synthetic fixture ONLY in intercepted test response; never write it to production data.
-await page.route('**/stories.js', async route=>{ const r=await route.fetch(); const body=await r.text();await route.fulfill({response:r,body:body.replace("location: { status: 'unverified', publish: false }", "location: { status: 'verified', publish: true, precision:'exact', lat:22.3, lng:114.2, verifiedAt:'2026-11-17', source:'https://example.org/test-fixture' }")}); });
-await page.goto('http://127.0.0.1:8765/');await page.waitForSelector('.story-marker');assert.equal(await page.locator('.story-marker').count(),1);
-await page.fill('#search','牛池灣');assert.equal(await page.locator('.story-marker.is-muted').count(),1);
-await page.locator('.story-marker').click();await page.waitForSelector('#detail-view:not([hidden])');assert.match(await page.locator('#detail-view').textContent(),/位置已核實/);
-await page.unroute('**/stories.js');
+await page.goto('http://127.0.0.1:8765/');await page.waitForSelector('.story-marker');
+await page.fill('#search','牛池灣');assert.equal(await page.locator('.story-marker.is-muted').count(),2);
+await page.locator('.story-marker:not(.is-muted)').click();await page.waitForSelector('#detail-view:not([hidden])');assert.match(await page.locator('#detail-view').textContent(),/大致區域/);
 await page.route('**/tile.openstreetmap.org/**',route=>route.abort());
 await page.goto('http://127.0.0.1:8765/');await page.waitForSelector('#map-retry:not([hidden])');assert.equal(await page.locator('.story-card').count(),3);
 assert.deepEqual(errors,[]);

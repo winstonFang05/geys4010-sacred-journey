@@ -20,4 +20,4 @@ assert 'OpenStreetMap</a> contributors' in (root/'map-config.js').read_text()
 assert 'preserve' in (root/'vendor/leaflet/leaflet.js').read_text()[:100]
 print('PASS: IDs, HTML assets, module imports, detail-view migration, no SVG positions, OSM attribution, Leaflet vendor header')
 
-assert "?v=20261117-map2" in (root/"index.html").read_text()
+assert "?v=20261117-map3" in (root/"index.html").read_text()

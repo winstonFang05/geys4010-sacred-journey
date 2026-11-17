@@ -1,6 +1,6 @@
 export const stories = [
   {
-    id: 'tin-chun', number: '01', category: 'school', location: { status: 'unverified', publish: false },
+    id: 'tin-chun', number: '01', category: 'school', location: { status: 'verified', publish: true, precision: 'area', lat: 22.52547, lng: 114.1625, verifiedAt: '2026-11-17', source: 'https://mapcarta.com/15983890', label: {zh: '坪輋一帶，非幼稚園舊址', en: 'Ping Che area, not the former kindergarten site'} },
     source: 'https://www.cie.hkbu.edu.hk/the-punctum/blog/2026/06/24/in-search-of-tin-chun-kindergarten-a-trilogy-by-dr-miriam-lau-division-of-arts-and-languages/',
     zh: {
       area: '新界 · 坪輋一帶', title: '尋找天真幼稚園',
@@ -18,7 +18,7 @@ export const stories = [
     }
   },
   {
-    id: 'ngau-chi-wan', number: '02', category: 'village', location: { status: 'unverified', publish: false },
+    id: 'ngau-chi-wan', number: '02', category: 'village', location: { status: 'verified', publish: true, precision: 'area', lat: 22.33546, lng: 114.20815, verifiedAt: '2026-11-17', source: 'https://mapcarta.com/N7428926979', label: {zh: '牛池灣村一帶，非個別文物點', en: 'Ngau Chi Wan Village area, not an individual heritage feature'} },
     source: 'https://www.aab.gov.hk/filemanager/aab/common/202meeting/aab_14_2023-24-a-en.pdf',
     zh: {
       area: '九龍 · 牛池灣', title: '牛池灣村的記錄',
@@ -36,7 +36,7 @@ export const stories = [
     }
   },
   {
-    id: 'ap-lei-chau', number: '03', category: 'waterfront', location: { status: 'unverified', publish: false },
+    id: 'ap-lei-chau', number: '03', category: 'waterfront', location: { status: 'verified', publish: true, precision: 'area', lat: 22.24376, lng: 114.15307, verifiedAt: '2026-11-17', source: 'https://mapcarta.com/N2193677481', label: {zh: '鴨脷洲大街一帶，以現代巴士站作區域參考，非舊碼頭', en: 'Main Street area, referenced to the modern bus station, not the old pier'} },
     source: 'https://www.urbandiarist.com/tc/story/Ap-Lei-Chau--Island-of-Plenty',
     zh: {
       area: '港島南區 · 鴨脷洲', title: '從大街走到舊碼頭',
@@ -62,7 +62,7 @@ export const copy = {
     intro: '從村校、老街到街坊熟悉的日常空間，沿着地圖閱讀香港的地方歷史與社區記憶。',
     explore: '探索故事地圖', edition: 'GEYS4010 · 小組原型', mapCaption: '香港 · 故事地圖',
     nt: '新界', kowloon: '九龍', hk: '香港島', harbour: '維多利亞港',
-    mapNote: '只有已核實且獲准公開的位置才顯示標記。', mapLimit: '列表亦可閱讀所有故事',
+    mapNote: '點選故事名稱閱讀；虛線標記為大致區域，並非精確舊址。', mapLimit: '列表亦可閱讀所有故事',
     archiveLabel: '地方誌 / 01', storiesTitle: '沿着地方，讀故事', storiesIntro: '三則公開資料示例，從檔案、地方研究和街坊口述出發。',
     search: '搜尋故事', placeholder: '地名、題材或關鍵字', filters: '故事分類', navLabel: '主要導覽',
     aboutLabel: '關於尋聖', aboutTitle: '地方由記憶留下來',
@@ -81,7 +81,7 @@ export const copy = {
     intro: 'Explore Hong Kong’s local history and community memories through village schools, old streets and familiar everyday places.',
     explore: 'Explore the story map', edition: 'GEYS4010 · GROUP PROTOTYPE', mapCaption: 'HONG KONG · STORY MAP',
     nt: 'New Territories', kowloon: 'Kowloon', hk: 'Hong Kong Island', harbour: 'Victoria Harbour',
-    mapNote: 'Only verified, publication-approved locations appear as markers.', mapLimit: 'ALL STORIES IN THE LIST',
+    mapNote: 'Select a story to read. Dashed markers show approximate areas, not exact historic sites.', mapLimit: 'ALL STORIES IN THE LIST',
     archiveLabel: 'LOCAL RECORDS / 01', storiesTitle: 'Stories rooted in place', storiesIntro: 'Three examples from public records, local research and community accounts.',
     search: 'Search stories', placeholder: 'Place, theme or keyword', filters: 'Story categories', navLabel: 'Main navigation',
     aboutLabel: 'ABOUT SACRED JOURNEY', aboutTitle: 'Places live on in memory',
