@@ -1,0 +1,192 @@
+{
+  "trevonelle-hero": {
+    "path": "/geys4010-sacred-journey/test/designs/assets/trevonelle-hero.jpg",
+    "source": "https://framerusercontent.com/images/8latCjXw0YRWnokVnaHR1YsyQ.jpg",
+    "alt": "Original Trevonelle landscape hero",
+    "bytes": 685937
+  },
+  "trevonelle-secondary": {
+    "path": "/geys4010-sacred-journey/test/designs/assets/trevonelle-secondary.jpg",
+    "source": "https://framerusercontent.com/images/aneoyf0UMVbH5ccVkdV7BHuX8.jpg",
+    "alt": "Original Trevonelle secondary landscape",
+    "bytes": 296189
+  },
+  "trevonelle-coast": {
+    "path": "/geys4010-sacred-journey/test/designs/assets/trevonelle-coast.jpg",
+    "source": "https://framerusercontent.com/images/ofz7nVAPvx583BOCCVxTtDbIqE.jpg",
+    "alt": "The Wild Coast Way",
+    "bytes": 638217
+  },
+  "trevonelle-karoo": {
+    "path": "/geys4010-sacred-journey/test/designs/assets/trevonelle-karoo.jpg",
+    "source": "https://framerusercontent.com/images/c78WqsjOR6uXyP8Fu2hwOAJQWk.jpg",
+    "alt": "Across the Open Karoo",
+    "bytes": 332789
+  },
+  "trevonelle-mountain": {
+    "path": "/geys4010-sacred-journey/test/designs/assets/trevonelle-mountain.jpg",
+    "source": "https://framerusercontent.com/images/WvHdN0T1KFE00nWUvMRnwqfPq3c.jpg",
+    "alt": "The Mountain & Vine Route",
+    "bytes": 774989
+  },
+  "accession-hero": {
+    "path": "/geys4010-sacred-journey/test/designs/assets/accession-hero.jpg",
+    "source": "https://framerusercontent.com/images/HWLp3j8q4yjoTBC02y23PMUWYU.jpg",
+    "alt": "The ropewalk bronze shift bell",
+    "bytes": 148900
+  },
+  "accession-bell": {
+    "path": "/geys4010-sacred-journey/test/designs/assets/accession-bell.jpg",
+    "source": "https://framerusercontent.com/images/H05EPoKBysH1ErDF1W2I9zdfHs.jpg",
+    "alt": "Bronze bell on an iron wall bracket",
+    "bytes": 66565
+  },
+  "accession-watch": {
+    "path": "/geys4010-sacred-journey/test/designs/assets/accession-watch.jpg",
+    "source": "https://framerusercontent.com/images/v9CtOmzrh4eBP8dOOQ2SfBGBw.jpg",
+    "alt": "Walk foreman pocket watch",
+    "bytes": 104426
+  },
+  "accession-compass": {
+    "path": "/geys4010-sacred-journey/test/designs/assets/accession-compass.jpg",
+    "source": "https://framerusercontent.com/images/Br8lOAGa9YoQSZRnhDPTmb3DIo.jpg",
+    "alt": "Boat compass from the ketch Maud",
+    "bytes": 124173
+  },
+  "accession-map": {
+    "path": "/geys4010-sacred-journey/test/designs/assets/accession-map.jpg",
+    "source": "https://framerusercontent.com/images/UWkqnLGTydtJ1V5HD8w6gXO7TYs.jpg",
+    "alt": "Hand-drawn survey chart of Tarrow Reach",
+    "bytes": 167056
+  },
+  "relic-cloud": {
+    "path": "/geys4010-sacred-journey/test/designs/assets/relic-cloud.png",
+    "source": "https://framerusercontent.com/images/kd5wAvgk4ELUkXs9JAbTJJrCinM.png",
+    "alt": "Dunhuang traditional textured auspicious cloud background",
+    "bytes": 260606
+  },
+  "relic-character-a": {
+    "path": "/geys4010-sacred-journey/test/designs/assets/relic-character-a.png",
+    "source": "https://framerusercontent.com/images/Ptb8qVlPPTpwOPiqbmKjqrvZvQ.png",
+    "alt": "Original Relic character illustration A",
+    "bytes": 125940
+  },
+  "relic-character-b": {
+    "path": "/geys4010-sacred-journey/test/designs/assets/relic-character-b.png",
+    "source": "https://framerusercontent.com/images/BZcHDLlU0WEVpBG99yHY9NUWya0.png",
+    "alt": "Original Relic character illustration B",
+    "bytes": 289617
+  },
+  "relic-mural-a": {
+    "path": "/geys4010-sacred-journey/test/designs/assets/relic-mural-a.jpg",
+    "source": "https://framerusercontent.com/images/oyfPeQU6BEg197cdTPlADJMMdls.jpg",
+    "alt": "Original Relic mural detail A",
+    "bytes": 97748
+  },
+  "relic-mural-b": {
+    "path": "/geys4010-sacred-journey/test/designs/assets/relic-mural-b.jpg",
+    "source": "https://framerusercontent.com/images/lBuYuQ8U7rb7DO9F3np2Szzja4.jpg",
+    "alt": "Original Relic mural detail B",
+    "bytes": 97402
+  },
+  "relic-mural-c": {
+    "path": "/geys4010-sacred-journey/test/designs/assets/relic-mural-c.jpg",
+    "source": "https://framerusercontent.com/images/WqIG79Qm7AyDGWCO6CcAl0ftJc.jpg",
+    "alt": "Original Relic mural detail C",
+    "bytes": 91646
+  },
+  "relic-cave": {
+    "path": "/geys4010-sacred-journey/test/designs/assets/relic-cave.jpeg",
+    "source": "https://framerusercontent.com/images/5nGqUtm2KCrl8C042BX1hlVOBE.jpeg",
+    "alt": "Original Relic cave detail",
+    "bytes": 265983
+  },
+  "oswald-600": {
+    "path": "/geys4010-sacred-journey/test/designs/assets/oswald-600.woff2",
+    "source": "https://framerusercontent.com/third-party-assets/fontshare/wf/XUKZCD4YXMROH2RFN7AVQI3ZBPZDZBBJ/TICF42Y6EVCHCW6VT7HP2KTG7LYEAL6Y/QJ44H4IY5JEWLICE2IBFYKPCK7EJANPW.woff2",
+    "alt": "Oswald",
+    "weight": "600",
+    "style": "normal"
+  },
+  "rokkitt-900": {
+    "path": "/geys4010-sacred-journey/test/designs/assets/rokkitt-900.woff2",
+    "source": "https://fonts.gstatic.com/s/rokkitt/v39/qFdb35qfgYFjGy5hukqqhw5XeRgdi1pbcJDOE76HvN6n.woff2",
+    "alt": "Rokkitt",
+    "weight": "900",
+    "style": "normal"
+  },
+  "dm-sans": {
+    "path": "/geys4010-sacred-journey/test/designs/assets/dm-sans.woff2",
+    "source": "https://fonts.gstatic.com/s/dmsans/v17/rP2Yp2ywxg089UriI5-g4vlH9VoD8Cmcqbu0-K4.woff2",
+    "alt": "DM Sans",
+    "weight": "400",
+    "style": "normal"
+  },
+  "vendor-leaflet.js": {
+    "path": "/geys4010-sacred-journey/test/designs/assets/vendor/leaflet.js",
+    "source": "https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+  },
+  "vendor-leaflet.css": {
+    "path": "/geys4010-sacred-journey/test/designs/assets/vendor/leaflet.css",
+    "source": "https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+  },
+  "vendor-images/marker-icon.png": {
+    "path": "/geys4010-sacred-journey/test/designs/assets/vendor/images/marker-icon.png",
+    "source": "https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon.png"
+  },
+  "vendor-images/marker-icon-2x.png": {
+    "path": "/geys4010-sacred-journey/test/designs/assets/vendor/images/marker-icon-2x.png",
+    "source": "https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon-2x.png"
+  },
+  "vendor-images/marker-shadow.png": {
+    "path": "/geys4010-sacred-journey/test/designs/assets/vendor/images/marker-shadow.png",
+    "source": "https://unpkg.com/leaflet@1.9.4/dist/images/marker-shadow.png"
+  },
+  "vendor-images/layers.png": {
+    "path": "/geys4010-sacred-journey/test/designs/assets/vendor/images/layers.png",
+    "source": "https://unpkg.com/leaflet@1.9.4/dist/images/layers.png"
+  },
+  "vendor-images/layers-2x.png": {
+    "path": "/geys4010-sacred-journey/test/designs/assets/vendor/images/layers-2x.png",
+    "source": "https://unpkg.com/leaflet@1.9.4/dist/images/layers-2x.png"
+  },
+  "vendor-qrcode.js": {
+    "path": "/geys4010-sacred-journey/test/designs/assets/vendor/qrcode.js",
+    "source": "https://unpkg.com/qrcode-generator@1.4.4/qrcode.js"
+  },
+  "ppt-landscape": {
+    "path": "/geys4010-sacred-journey/test/designs/assets/ppt-landscape.png",
+    "source": "Proposal Presentation (1) (1).pptx · ppt/media/image12.png",
+    "alt": "小組提案PPT山水亭台插圖"
+  },
+  "ppt-sun-clouds": {
+    "path": "/geys4010-sacred-journey/test/designs/assets/ppt-sun-clouds.png",
+    "source": "Proposal Presentation (1) (1).pptx · ppt/media/image14.png",
+    "alt": "小組提案PPT太陽與雲朵插圖"
+  },
+  "hk-geography": {
+    "path": "/geys4010-sacred-journey/test/designs/assets/hk-geography.js",
+    "source": "https://github.com/nvkelso/natural-earth-vector/blob/master/geojson/ne_10m_land.geojson",
+    "license": "Public domain",
+    "note": "Coastline geometry clipped to the Hong Kong vicinity. Not administrative boundaries."
+  },
+  "instagram-qr": {
+    "path": "/geys4010-sacred-journey/test/designs/assets/instagram-qr.svg",
+    "source": "User-provided Instagram QR image; destination rebuilt from the visible account handle.",
+    "destination": "https://www.instagram.com/sacredjourney_wys.fyp/"
+  },
+  "tin-chun-village-school": {
+    "path": "/geys4010-sacred-journey/test/designs/assets/tin-chun-village-school.webp",
+    "source": "AI-generated original illustration created for Sacred Journey at the user’s request, 2026-11-17.",
+    "alt": "香港村校概念插圖：榕樹、綠色校門、舊式校舍與校車",
+    "note": "Concept artwork inspired by village school memories; not a depiction or historical reconstruction of Tin Chun Kindergarten.",
+    "bytes": 651916
+  },
+  "trevonelle-minimal-landscape": {
+    "path": "/geys4010-sacred-journey/test/designs/assets/trevonelle-minimal-landscape.svg",
+    "source": "Original decorative vector background created for Sacred Journey, 2026-11-17.",
+    "alt": "Decorative pale sage gradient with subtle landscape contours.",
+    "note": "Minimal background for the Trevonelle rediscovery section; not a depiction of a specific site.",
+    "bytes": 1056
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "status": "passed",
+  "method": "Real atlas module in DOM event harness (not browser visual QA)",
+  "checks": [
+    "trevonelle/zh: local coastline; 3 links; zoom in/out/reset; keyboard; drag; mobile sizing; pinch; no tile requests",
+    "trevonelle/en: local coastline; 3 links; zoom in/out/reset; keyboard; drag; mobile sizing; pinch; no tile requests",
+    "accession/zh: local coastline; 3 links; zoom in/out/reset; keyboard; drag; mobile sizing; pinch; no tile requests",
+    "accession/en: local coastline; 3 links; zoom in/out/reset; keyboard; drag; mobile sizing; pinch; no tile requests",
+    "relic/zh: local coastline; 3 links; zoom in/out/reset; keyboard; drag; mobile sizing; pinch; no tile requests",
+    "relic/en: local coastline; 3 links; zoom in/out/reset; keyboard; drag; mobile sizing; pinch; no tile requests",
+    "synthesis/zh: local coastline; 3 links; zoom in/out/reset; keyboard; drag; mobile sizing; pinch; no tile requests",
+    "synthesis/en: local coastline; 3 links; zoom in/out/reset; keyboard; drag; mobile sizing; pinch; no tile requests"
+  ]
+}

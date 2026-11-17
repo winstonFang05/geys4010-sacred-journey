@@ -1,0 +1,12 @@
+import fs from 'node:fs';import vm from 'node:vm';
+const sandbox={};vm.createContext(sandbox);vm.runInContext(fs.readFileSync('assets/vendor/qrcode.js','utf8'),sandbox);
+const qr=sandbox.qrcode(0,'H');qr.addData('https://www.instagram.com/sacredjourney_wys.fyp/');qr.make();
+const count=qr.getModuleCount(),quiet=4,size=count+quiet*2;
+const gradient=`<defs><linearGradient id="instagram-color" gradientUnits="userSpaceOnUse" x1="4" y1="4" x2="${size-4}" y2="${size-4}"><stop offset="0" stop-color="#d99a08"/><stop offset=".45" stop-color="#ed7b27"/><stop offset="1" stop-color="#e52867"/></linearGradient></defs>`;
+const inFinder=(r,c)=>(r<7&&c<7)||(r<7&&c>=count-7)||(r>=count-7&&c<7);
+let modules='';for(let row=0;row<count;row++)for(let col=0;col<count;col++)if(qr.isDark(row,col)&&!inFinder(row,col))modules+=`<circle cx="${col+quiet+.5}" cy="${row+quiet+.5}" r=".5"/>`;
+const finder=(x,y)=>`<rect x="${x+quiet}" y="${y+quiet}" width="7" height="7" rx=".7" fill="url(#instagram-color)"/><rect x="${x+quiet+1}" y="${y+quiet+1}" width="5" height="5" rx=".4" fill="white"/><rect x="${x+quiet+2}" y="${y+quiet+2}" width="3" height="3" rx=".7" fill="url(#instagram-color)"/>`;
+const center=size/2;
+const logo=`<rect x="${center-4.4}" y="${center-4.4}" width="8.8" height="8.8" rx="1.8" fill="white"/><g transform="translate(${center-3.25},${center-3.25})" fill="none" stroke="#ed7b27" stroke-width=".65"><rect x="0" y="0" width="6.5" height="6.5" rx="1.65"/><circle cx="3.25" cy="3.25" r="1.55"/><circle cx="5" cy="1.5" r=".34" fill="#ed7b27" stroke="none"/></g>`;
+const svg=`<svg xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Instagram: sacredjourney_wys.fyp" viewBox="0 0 ${size} ${size}">${gradient}<rect width="${size}" height="${size}" rx="1.5" fill="white"/><g fill="url(#instagram-color)">${modules}</g>${finder(0,0)}${finder(count-7,0)}${finder(0,count-7)}${logo}</svg>`;
+fs.writeFileSync('assets/instagram-qr.svg',svg);console.log('Generated gradient Instagram QR:',count,'modules, high error correction');

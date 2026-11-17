@@ -1,0 +1,15 @@
+{
+  "status": "passed",
+  "method": "Map lifecycle/event harness; live OSM tile response separately inspected; not browser visual QA",
+  "checks": [
+    "trevonelle/zh: OSM street provider, attribution, three markers, detail navigation, fit/reset, resize and disposal",
+    "trevonelle/en: OSM street provider, attribution, three markers, detail navigation, fit/reset, resize and disposal",
+    "accession/zh: OSM street provider, attribution, three markers, detail navigation, fit/reset, resize and disposal",
+    "accession/en: OSM street provider, attribution, three markers, detail navigation, fit/reset, resize and disposal",
+    "relic/zh: OSM street provider, attribution, three markers, detail navigation, fit/reset, resize and disposal",
+    "relic/en: OSM street provider, attribution, three markers, detail navigation, fit/reset, resize and disposal",
+    "synthesis/zh: OSM street provider, attribution, three markers, detail navigation, fit/reset, resize and disposal",
+    "synthesis/en: OSM street provider, attribution, three markers, detail navigation, fit/reset, resize and disposal",
+    "Failed street tiles: clearly labelled geographic fallback, retry and cleanup"
+  ]
+}
