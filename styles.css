@@ -112,3 +112,22 @@ dialog::backdrop { background: #000000b8; }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
 }
+
+/* First map upgrade: retain the monochrome identity, never recolour map attribution. */
+[hidden] { display: none !important; }
+#interactive-map { height: 370px; width: 100%; z-index: 0; background: #eee; }
+#interactive-map img { max-width: none; }
+#map-status { padding: 10px 4px 3px; font-size: .8rem; }
+#map-retry { margin: 8px 4px; padding: 8px 12px; border: 1px solid; background: white; }
+.story-marker { border: 2px solid white; border-radius: 50%; background: #000; color: white; display: grid; place-items: center; font-weight: bold; box-shadow: 0 0 0 1px black; }
+.story-marker.is-muted { background: #fff; color: #555; border-color: #555; box-shadow: none; }
+.location-status { font-size: .75rem !important; border-top: 1px dashed #aaa; padding-top: 9px; }
+.detail-view { max-width: 850px; padding-block: 38px 60px; }
+.detail-view > * + * { margin-top: 20px; }
+.detail-view h1, :lang(en) .detail-view h1 { font-size: clamp(2rem, 5vw, 3.5rem); line-height: 1.15; }
+.detail-view h2 { font-size: 1.25rem; }
+.detail-view .evidence { padding-top: 20px; }
+.detail-view p, .detail-view a { overflow-wrap: anywhere; }
+.leaflet-control-attribution { font-family: sans-serif; }
+.leaflet-control-attribution a { color: #076ca1; }
+@media(max-width:720px) { #interactive-map { height: 330px; } .leaflet-control-attribution { font-size: 10px; } }

@@ -5,7 +5,9 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="description" content="尋聖之旅以故事地圖記錄香港的地方歷史與社區記憶。">
   <title>尋聖之旅 · Sacred Journey</title>
+  <link rel="stylesheet" href="./vendor/leaflet/leaflet.css">
   <link rel="stylesheet" href="./styles.css">
+  <script src="./vendor/leaflet/leaflet.js" defer></script>
   <script src="./app.js" type="module"></script>
 </head>
 <body>
@@ -24,6 +26,7 @@
     </div>
   </header>
   <main id="main">
+    <div id="home-view">
     <section class="hero wrap">
       <div class="hero-copy">
         <p class="eyebrow"><span></span><span data-copy="eyebrow">香港社區文化地圖</span></p>
@@ -37,15 +40,9 @@
       </div>
       <figure id="map" class="atlas">
         <figcaption><span data-copy="mapCaption">香港 · 地區示意</span><span>FIELD MAP / 01</span></figcaption>
-        <div class="map-area">
-          <img src="./assets/atlas.svg" alt="" width="640" height="400">
-          <span class="region north" data-copy="nt">新界</span>
-          <span class="region central" data-copy="kowloon">九龍</span>
-          <span class="region island" data-copy="hk">香港島</span>
-          <span class="region water" data-copy="harbour">維多利亞港</span>
-          <span class="north-arrow" aria-hidden="true">↑<br>N</span>
-          <div id="pins" class="pins"></div>
-        </div>
+        <div id="interactive-map" class="map-area" aria-label="香港故事地圖"></div>
+        <p id="map-status" role="status"></p>
+        <button id="map-retry" type="button" hidden>重新載入地圖</button>
         <div class="map-footer">
           <p data-copy="mapNote">點選編號閱讀故事。標記只代表大致地區。</p>
           <span data-copy="mapLimit">僅供閱讀</span>
@@ -80,13 +77,9 @@
         <a id="template" class="primary" href="./assets/story-template-zh.txt" download><span data-copy="download">下載草稿模板</span><span aria-hidden="true">↓</span></a>
       </section>
     </div>
+    </div>
+    <section id="detail-view" class="wrap detail-view" hidden tabindex="-1"></section>
   </main>
   <footer class="wrap footer"><span>尋聖之旅 / SACRED JOURNEY</span><span>GEYS4010 · Group A09</span></footer>
-  <dialog id="story" aria-labelledby="story-title">
-    <div class="dialog-inner">
-      <form method="dialog"><button class="close" type="submit" data-copy="close">關閉</button></form>
-      <div id="story-content"></div>
-    </div>
-  </dialog>
 </body>
 </html>

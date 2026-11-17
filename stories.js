@@ -1,6 +1,6 @@
 export const stories = [
   {
-    id: 'tin-chun', number: '01', category: 'school', position: [57, 24],
+    id: 'tin-chun', number: '01', category: 'school', location: { status: 'unverified', publish: false },
     source: 'https://www.cie.hkbu.edu.hk/the-punctum/blog/2026/06/24/in-search-of-tin-chun-kindergarten-a-trilogy-by-dr-miriam-lau-division-of-arts-and-languages/',
     zh: {
       area: '新界 · 坪輋一帶', title: '尋找天真幼稚園',
@@ -18,7 +18,7 @@ export const stories = [
     }
   },
   {
-    id: 'ngau-chi-wan', number: '02', category: 'village', position: [62, 57],
+    id: 'ngau-chi-wan', number: '02', category: 'village', location: { status: 'unverified', publish: false },
     source: 'https://www.aab.gov.hk/filemanager/aab/common/202meeting/aab_14_2023-24-a-en.pdf',
     zh: {
       area: '九龍 · 牛池灣', title: '牛池灣村的記錄',
@@ -36,7 +36,7 @@ export const stories = [
     }
   },
   {
-    id: 'ap-lei-chau', number: '03', category: 'waterfront', position: [60, 87],
+    id: 'ap-lei-chau', number: '03', category: 'waterfront', location: { status: 'unverified', publish: false },
     source: 'https://www.urbandiarist.com/tc/story/Ap-Lei-Chau--Island-of-Plenty',
     zh: {
       area: '港島南區 · 鴨脷洲', title: '從大街走到舊碼頭',
@@ -60,9 +60,9 @@ export const copy = {
     skip: '跳至內容', navMap: '故事地圖', navStories: '故事檔案', navContribute: '分享線索', navAbout: '關於計劃',
     eyebrow: '香港社區文化地圖', headline: '在香港，\n尋一段地方故事。',
     intro: '從村校、老街到街坊熟悉的日常空間，沿着地圖閱讀香港的地方歷史與社區記憶。',
-    explore: '探索故事地圖', edition: 'GEYS4010 · 小組原型', mapCaption: '香港 · 地區示意',
+    explore: '探索故事地圖', edition: 'GEYS4010 · 小組原型', mapCaption: '香港 · 故事地圖',
     nt: '新界', kowloon: '九龍', hk: '香港島', harbour: '維多利亞港',
-    mapNote: '點選編號閱讀故事。標記只代表大致地區。', mapLimit: '僅供閱讀',
+    mapNote: '只有已核實且獲准公開的位置才顯示標記。', mapLimit: '列表亦可閱讀所有故事',
     archiveLabel: '地方誌 / 01', storiesTitle: '沿着地方，讀故事', storiesIntro: '三則公開資料示例，從檔案、地方研究和街坊口述出發。',
     search: '搜尋故事', placeholder: '地名、題材或關鍵字', filters: '故事分類', navLabel: '主要導覽',
     aboutLabel: '關於尋聖', aboutTitle: '地方由記憶留下來',
@@ -79,9 +79,9 @@ export const copy = {
     skip: 'Skip to content', navMap: 'Story map', navStories: 'Archive', navContribute: 'Share a lead', navAbout: 'About the project',
     eyebrow: 'A COMMUNITY ATLAS OF HONG KONG', headline: 'Every place\nholds a story.',
     intro: 'Explore Hong Kong’s local history and community memories through village schools, old streets and familiar everyday places.',
-    explore: 'Explore the story map', edition: 'GEYS4010 · GROUP PROTOTYPE', mapCaption: 'HONG KONG · SCHEMATIC',
+    explore: 'Explore the story map', edition: 'GEYS4010 · GROUP PROTOTYPE', mapCaption: 'HONG KONG · STORY MAP',
     nt: 'New Territories', kowloon: 'Kowloon', hk: 'Hong Kong Island', harbour: 'Victoria Harbour',
-    mapNote: 'Select a number to read its story. Markers show general areas.', mapLimit: 'NOT FOR NAVIGATION',
+    mapNote: 'Only verified, publication-approved locations appear as markers.', mapLimit: 'ALL STORIES IN THE LIST',
     archiveLabel: 'LOCAL RECORDS / 01', storiesTitle: 'Stories rooted in place', storiesIntro: 'Three examples from public records, local research and community accounts.',
     search: 'Search stories', placeholder: 'Place, theme or keyword', filters: 'Story categories', navLabel: 'Main navigation',
     aboutLabel: 'ABOUT SACRED JOURNEY', aboutTitle: 'Places live on in memory',
