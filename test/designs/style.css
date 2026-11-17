@@ -100,3 +100,16 @@
 @media(max-width:680px){.teaser-map .street-map-frame{height:360px}.map-stage .street-map-frame{height:100%;min-height:540px}.footer-instagram{grid-template-columns:1fr;gap:30px;margin-bottom:38px;padding-bottom:37px}.footer-instagram .eyebrow{font-size:8px;margin-bottom:13px}.footer-instagram h2{font-size:27px}.footer-instagram .ig-copy>p:not(.eyebrow){font-size:11px}.ig-account{font-size:12px;margin-top:17px;gap:9px}.ig-account>span:last-child{margin-left:3px}.ig-qr-card{justify-self:start;padding:16px 16px 14px}.ig-qr-card img{width:176px;height:176px}.street-fallback-notice{font-size:9px;left:10px;right:10px}.street-fallback-notice button{font-size:9px}}
 
 .street-map-loading{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);z-index:500;padding:12px 18px;background:var(--paper);color:var(--muted);box-shadow:0 3px 16px #0001;font-size:11px;white-space:nowrap}
+
+/* Keep the Accession opening panel within a desktop viewport. */
+@media(min-width:1024px){
+ .accession .acc-hero{height:calc(100svh - 85px);min-height:520px;max-height:850px;display:grid;grid-template-rows:auto minmax(110px,1fr) auto}
+ .accession .acc-hero-top{padding:20px 5vw 16px}
+ .accession .acc-hero .eyebrow{font-size:9px;margin-bottom:10px}
+ .accession .acc-hero h1{font-size:clamp(42px,4.3vw,66px);line-height:1.16}
+ .accession .acc-hero-image{height:100%;min-height:0;width:90%;aspect-ratio:auto;object-fit:contain}
+ .accession .acc-hero-bottom{padding:18px 5vw 22px;gap:5vw}
+ .accession .acc-hero-bottom h3{font-size:clamp(18px,1.6vw,23px);margin-top:7px}
+ .accession .acc-hero-bottom p:not(.image-note){font-size:12px;line-height:1.8;margin-bottom:12px}
+ .accession .acc-hero-bottom .btn{min-height:42px;padding:10px 18px;font-size:12px}
+}
