@@ -128,7 +128,7 @@
 .record-badge small{font-size:9px;letter-spacing:.08em;line-height:1.3}
 .trevonelle .trev-intro-copy>.eyebrow{display:table;background:var(--ink);color:#fff;border-radius:30px;padding:5px 12px;font-size:9px;letter-spacing:.1em}
 .trevonelle .trev-intro h2{line-height:1.4;margin:20px 0 24px}
-.trevonelle .trev-intro h2 em{font-style:normal;color:#8d9499}
+.trevonelle .trev-intro h2 em{font-style:normal;color:#7b8389}
 .trevonelle .trev-intro-copy>p:not(.eyebrow){font-size:15px;line-height:1.95;margin-bottom:26px}
 .trevonelle .trev-intro-copy .btn.dark{background:var(--ink);color:#fff}
 .trevonelle .intro-list{grid-column:1/-1;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px}
@@ -181,3 +181,5 @@
 @media(min-width:1440px){.trevonelle .contribute{margin-left:auto;margin-right:auto}}
 @media(max-width:900px){.trevonelle .trev-intro{gap:55px 5vw}.record-badge{width:98px;height:98px;right:-15px;top:-18px}.record-badge strong{font-size:39px}.trevonelle .intro-list{display:grid;gap:15px}.trevonelle .intro-list article{padding:21px}.trevonelle .intro-list h3{font-size:20px}}
 @media(max-width:680px){.trevonelle .site-header{top:12px}.trevonelle .trev-intro{grid-template-columns:1fr;gap:40px;padding-top:70px;padding-bottom:55px}.trev-postcard{margin:10px 20px 5px 3px;padding:10px 10px 16px}.trev-postcard>img{aspect-ratio:1.2}.record-badge{width:95px;height:95px;right:-18px;top:-18px}.trevonelle .trev-intro h2{font-size:34px;margin-top:16px}.trevonelle .trev-intro-copy>p:not(.eyebrow){font-size:14px}.trevonelle .intro-list{grid-template-columns:1fr;gap:16px}.trevonelle .intro-list article{padding:24px}.trevonelle .template-banner{padding:42px 18px;min-height:540px;border-radius:24px}.trevonelle .template-banner>.trev-banner-panel{padding:28px 22px;border-radius:22px}.trevonelle .template-banner h2{font-size:34px}.trevonelle .template-banner .hero-buttons{flex-direction:column;align-items:stretch}.trevonelle .template-banner .btn{justify-content:space-between;min-height:45px}.banner-lead{font-size:12px}.trevonelle .contribute{margin:0 22px 50px;padding:30px 24px;gap:25px;border-radius:24px}.trevonelle .site-footer{border-radius:28px 28px 0 0}.trevonelle .teaser-map{border-width:7px}}
+
+.trevonelle .brand-symbol{display:grid;place-items:center}.trevonelle .brand-symbol svg{display:block}
