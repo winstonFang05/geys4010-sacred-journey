@@ -121,26 +121,26 @@
 .trevonelle .floating-story{backdrop-filter:none;-webkit-backdrop-filter:none;background:#1d252ded;border-color:#87929b;box-shadow:0 3px 0 #10161b35}
 .trevonelle .card-photo{border:1px solid #bdc6cd}
 .trevonelle .teaser-map{border:1px solid #bdc6cd}
-.trevonelle .landscape-band{border:1px solid #bfc8cf;border-radius:20px;background:#f4f5f6}
-.trevonelle .landscape-band>img{background:#f4f5f6}
-.trevonelle .landscape-band>div{color:#252c33}
-.trevonelle .landscape-band .eyebrow{color:#59636d}
-.trevonelle .landscape-band .btn.light{background:#252c33;color:#fff;border-color:#252c33}
-.trevonelle .landscape-band .btn.light:hover{background:#3b444d;border-color:#3b444d}
+.trevonelle .landscape-band{border:1px solid #c8ab94;border-radius:20px;background:#f2e4d8}
+.trevonelle .landscape-band>img{background:#f2e4d8}
+.trevonelle .landscape-band>div{color:#604332}
+.trevonelle .landscape-band .eyebrow{color:#77553e}
+.trevonelle .landscape-band .btn.light{background:#8b5740;color:#fffbf6;border-color:#8b5740}
+.trevonelle .landscape-band .btn.light:hover{background:#754631;border-color:#754631}
 .trevonelle .contribute{color:#283038}
 .trevonelle .contribute .btn{background:#252c33;color:#fff}
 .trevonelle .contribute .btn:hover{background:#3b444d}
 .trevonelle .contribute .eyebrow,.trevonelle .contribute .small-note{color:#5d6268}
 .trevonelle .contribute .lead{color:#4f565d}
 .trevonelle .trev-intro{grid-template-columns:190px minmax(0,1.3fr) minmax(180px,.8fr);gap:clamp(28px,4vw,64px)}
-.trevonelle .intro-serial.record-counter{display:block;align-self:center;width:190px;max-width:100%;padding:16px 14px 17px;background:#fff;border:1px solid #b9c3cb;border-radius:14px;box-shadow:0 3px 0 #cdd4da;font-family:var(--sans);line-height:1;letter-spacing:normal}
-.record-counter-heading{display:flex;align-items:center;justify-content:center;gap:7px;font-size:8px;font-weight:600;letter-spacing:.13em;color:#59636b;white-space:nowrap}
+.trevonelle .intro-serial.record-counter{display:block;align-self:center;width:190px;max-width:100%;padding:16px 14px 17px;background:#e6cfad url('/geys4010-sacred-journey/test/designs/assets/kraft-grain.svg') repeat;border:1px solid #b08b61;border-radius:14px;box-shadow:0 3px 0 #c4a17a,inset 0 1px 0 #f9ecd7;font-family:var(--sans);line-height:1;letter-spacing:normal}
+.record-counter-heading{display:flex;align-items:center;justify-content:center;gap:7px;font-size:8px;font-weight:600;letter-spacing:.13em;color:#705036;white-space:nowrap}
 .record-counter-heading>span{width:5px;height:5px;flex-shrink:0;border-radius:50%;background:#ba654b}
 .record-flaps{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:7px;margin:15px 0 13px}
-.counter-digit{position:relative;display:flex;align-items:center;justify-content:center;height:110px;border:1px solid #0b1117;border-radius:7px;background:linear-gradient(#29313a 0 49.5%,#181f26 50.5% 100%);color:#fff;font:600 82px/1 Oswald,sans-serif;font-variant-numeric:tabular-nums;box-shadow:inset 0 1px 0 #59616a}
-.counter-digit::after{content:'';position:absolute;left:0;right:0;top:50%;height:1px;background:#0a1117;box-shadow:0 1px 0 #ffffff13}
-.trevonelle .intro-serial .record-counter-label{margin:0;text-align:center;font-size:11px;line-height:1.6;font-weight:600;letter-spacing:.06em;color:#252c33}
-.record-counter-label>span{display:block;margin-top:4px;font-size:9px;font-weight:400;letter-spacing:0;color:#626d76}
+.counter-digit{position:relative;display:flex;align-items:center;justify-content:center;height:110px;border:1px solid #a07a50;border-radius:7px;background-image:url('/geys4010-sacred-journey/test/designs/assets/kraft-grain.svg'),linear-gradient(#e1c39a 0 49.5%,#d6b587 50.5% 100%);background-size:140px 140px,auto;color:#553c28;font:600 82px/1 Oswald,sans-serif;font-variant-numeric:tabular-nums;box-shadow:inset 0 1px 0 #f5e4c8,0 2px 0 #ac875d}
+.counter-digit::after{content:'';position:absolute;left:0;right:0;top:50%;height:1px;background:#a67d51;box-shadow:0 1px 0 #f4dfbd80}
+.trevonelle .intro-serial .record-counter-label{margin:0;text-align:center;font-size:11px;line-height:1.6;font-weight:600;letter-spacing:.06em;color:#5c432c}
+.record-counter-label>span{display:block;margin-top:4px;font-size:9px;font-weight:400;letter-spacing:0;color:#6b4f35}
 @media(max-width:1150px){.trevonelle .trev-intro{grid-template-columns:176px minmax(0,1.3fr) minmax(150px,.8fr);gap:35px}.trevonelle .intro-serial.record-counter{width:176px}.counter-digit{height:102px;font-size:76px}}
 @media(max-width:900px){.trevonelle .trev-intro{grid-template-columns:176px minmax(0,1fr)}}
 @media(max-width:680px){.trevonelle .trev-intro{grid-template-columns:1fr;gap:32px}.trevonelle .intro-serial.record-counter{width:176px;align-self:start}.trevonelle .landscape-band{border-radius:18px}.trevonelle .landscape-band>div{left:24px;right:24px}}

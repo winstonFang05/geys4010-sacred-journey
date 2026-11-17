@@ -185,8 +185,14 @@
   "trevonelle-minimal-landscape": {
     "path": "/geys4010-sacred-journey/test/designs/assets/trevonelle-minimal-landscape.svg",
     "source": "Original decorative vector background created for Sacred Journey, 2026-11-17.",
-    "alt": "Cool off-white vector landscape, crisp grey contours and a terracotta sun.",
+    "alt": "Warm apricot vector landscape with clay-toned contours and sun.",
     "note": "Minimal background for the Trevonelle rediscovery section; not a depiction of a specific site.",
     "bytes": 581
+  },
+  "kraft-grain": {
+    "path": "/geys4010-sacred-journey/test/designs/assets/kraft-grain.svg",
+    "source": "Original procedural SVG paper grain for the Sacred Journey kraft-paper counter.",
+    "alt": "Subtle warm paper fibre texture",
+    "bytes": 408
   }
 }
