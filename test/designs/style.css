@@ -183,3 +183,9 @@
 @media(max-width:680px){.trevonelle .site-header{top:12px}.trevonelle .trev-intro{grid-template-columns:1fr;gap:40px;padding-top:70px;padding-bottom:55px}.trev-postcard{margin:10px 20px 5px 3px;padding:10px 10px 16px}.trev-postcard>img{aspect-ratio:1.2}.record-badge{width:95px;height:95px;right:-18px;top:-18px}.trevonelle .trev-intro h2{font-size:34px;margin-top:16px}.trevonelle .trev-intro-copy>p:not(.eyebrow){font-size:14px}.trevonelle .intro-list{grid-template-columns:1fr;gap:16px}.trevonelle .intro-list article{padding:24px}.trevonelle .template-banner{padding:42px 18px;min-height:540px;border-radius:24px}.trevonelle .template-banner>.trev-banner-panel{padding:28px 22px;border-radius:22px}.trevonelle .template-banner h2{font-size:34px}.trevonelle .template-banner .hero-buttons{flex-direction:column;align-items:stretch}.trevonelle .template-banner .btn{justify-content:space-between;min-height:45px}.banner-lead{font-size:12px}.trevonelle .contribute{margin:0 22px 50px;padding:30px 24px;gap:25px;border-radius:24px}.trevonelle .site-footer{border-radius:28px 28px 0 0}.trevonelle .teaser-map{border-width:7px}}
 
 .trevonelle .brand-symbol{display:grid;place-items:center}.trevonelle .brand-symbol svg{display:block}
+
+.trevonelle .explore-layout{border-radius:26px;overflow:hidden;border-color:#dce2e6;background:#fff}
+.trevonelle .map-list-item:hover{background:#f1f4f6}
+.trevonelle .visit-panel{border-radius:22px}
+.trevonelle .mobile-map-toggle button{border-radius:30px}
+.trevonelle .explore-heading .eyebrow,.trevonelle .story-intro-copy>.eyebrow{color:var(--accent)}
