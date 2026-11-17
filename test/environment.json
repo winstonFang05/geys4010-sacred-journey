@@ -1,0 +1,8 @@
+{
+  "environment": "test",
+  "source_commit": "9078824d8e9918b136341b2caf80a1c6716284f4",
+  "created_utc": "2026-11-17",
+  "production_path": "../",
+  "isolated_static_files": true,
+  "isolated_backend": false
+}
