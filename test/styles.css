@@ -134,7 +134,7 @@ dialog::backdrop { background: #000000b8; }
 
 /* Story-first presentation: keep legal attribution and zoom controls readable. */
 #interactive-map { height:460px; }
-#interactive-map .leaflet-tile-pane { filter:grayscale(1) saturate(0) opacity(.55); }
+#interactive-map .leaflet-tile-pane { filter:none; opacity:1; }
 .story-label { display:flex; gap:8px; align-items:center; padding:6px 9px; background:#fff; color:#111; border:2px dashed #222; border-radius:7px; box-shadow:0 2px 8px #0003; line-height:1.25; }
 .story-label b { font-size:19px; }
 .story-label span { font-size:13px; text-align:left; }
