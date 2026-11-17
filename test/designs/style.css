@@ -141,5 +141,6 @@
 .counter-digit::after{content:'';position:absolute;left:0;right:0;top:50%;height:1px;background:#0a1117;box-shadow:0 1px 0 #ffffff13}
 .trevonelle .intro-serial .record-counter-label{margin:0;text-align:center;font-size:11px;line-height:1.6;font-weight:600;letter-spacing:.06em;color:#252c33}
 .record-counter-label>span{display:block;margin-top:4px;font-size:9px;font-weight:400;letter-spacing:0;color:#626d76}
-@media(max-width:1150px){.trevonelle .trev-intro{grid-template-columns:176px minmax(0,1fr);gap:35px}.trevonelle .intro-serial.record-counter{width:176px}.counter-digit{height:102px;font-size:76px}}
+@media(max-width:1150px){.trevonelle .trev-intro{grid-template-columns:176px minmax(0,1.3fr) minmax(150px,.8fr);gap:35px}.trevonelle .intro-serial.record-counter{width:176px}.counter-digit{height:102px;font-size:76px}}
+@media(max-width:900px){.trevonelle .trev-intro{grid-template-columns:176px minmax(0,1fr)}}
 @media(max-width:680px){.trevonelle .trev-intro{grid-template-columns:1fr;gap:32px}.trevonelle .intro-serial.record-counter{width:176px;align-self:start}.trevonelle .landscape-band{border-radius:18px}.trevonelle .landscape-band>div{left:24px;right:24px}}
