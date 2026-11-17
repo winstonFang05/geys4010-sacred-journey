@@ -146,3 +146,23 @@ dialog::backdrop { background: #000000b8; }
 
 .test-banner { padding:10px 16px; background:#fff4c2; border-bottom:2px dashed #8a6900; color:#292100; font-size:13px; text-align:center; }
 .test-banner a { margin-left:12px; font-weight:bold; }
+
+/* Sandbox layout trial: map is the main content, introduction is secondary. */
+.hero { grid-template-columns:minmax(200px,.65fr) minmax(0,1.7fr); gap:26px; padding-block:28px 34px; align-items:start; }
+.hero h1 { font-size:clamp(1.7rem,2.7vw,2.6rem); line-height:1.2; margin-block:12px; }
+:lang(en) .hero h1 { font-size:clamp(1.8rem,2.9vw,2.8rem); line-height:1.1; }
+.hero .intro { font-size:.9rem; line-height:1.6; max-width:32ch; }
+.hero .actions { margin-block:16px; gap:12px; }
+.hero .primary { min-height:40px; font-size:.8rem; padding:7px 10px; }
+.hero .text-link { font-size:.8rem; }
+.hero .edition { font-size:.6rem; }
+#interactive-map { height:clamp(510px,66vh,740px); }
+@media(max-width:720px) {
+ .hero { grid-template-columns:1fr; gap:16px; padding-block:18px 24px; }
+ .hero h1, :lang(en) .hero h1 { font-size:1.65rem; white-space:normal; margin-block:8px; }
+ .hero .intro { max-width:none; font-size:.85rem; }
+ .hero .eyebrow { font-size:.65rem; }
+ .hero .actions { margin-block:12px 0; }
+ .hero .edition { display:none; }
+ #interactive-map { height:clamp(460px,65svh,650px); }
+}
