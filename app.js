@@ -1,6 +1,6 @@
-import { copy, stories } from './stories.js';
-import { publicLocation, matchingStories, escapeHtml as e, safeUrl } from './map-data.js';
-import { mapConfig } from './map-config.js';
+import { copy, stories } from './stories.js?v=20261117-map2';
+import { publicLocation, matchingStories, escapeHtml as e, safeUrl } from './map-data.js?v=20261117-map2';
+import { mapConfig } from './map-config.js?v=20261117-map2';
 const $ = s => document.querySelector(s);
 let language = new URLSearchParams(location.search).get('lang') === 'en' ? 'en' : 'zh';
 let category = 'all', map, markers, tiles, tileFailed = false, mapTimer;

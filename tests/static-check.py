@@ -8,14 +8,16 @@ class Check(HTMLParser):
         a=dict(attrs)
         if 'id' in a: self.ids.append(a['id'])
         for k in ('src','href'):
-            if a.get(k,'').startswith('./'): self.local.append(a[k][2:])
+            if a.get(k,'').startswith('./'): self.local.append(a[k][2:].split("?")[0])
 c=Check();c.feed((root/'index.html').read_text())
 assert len(c.ids)==len(set(c.ids)), 'duplicate IDs'
 assert all((root/p).is_file() for p in c.local), 'missing HTML resources'
 for f in ('app.js','map-data.js','map-config.js'):
-    for path in re.findall(r"from ['\"]\./([^'\"]+)",(root/f).read_text()): assert (root/path).is_file()
+    for path in re.findall(r"from ['\"]\./([^'\"]+)",(root/f).read_text()): assert (root/path.split("?")[0]).is_file()
 assert '<dialog' not in (root/'index.html').read_text()
 assert 'position: [' not in (root/'stories.js').read_text()
 assert 'OpenStreetMap</a> contributors' in (root/'map-config.js').read_text()
 assert 'preserve' in (root/'vendor/leaflet/leaflet.js').read_text()[:100]
 print('PASS: IDs, HTML assets, module imports, detail-view migration, no SVG positions, OSM attribution, Leaflet vendor header')
+
+assert "?v=20261117-map2" in (root/"index.html").read_text()

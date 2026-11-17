@@ -5,10 +5,10 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="description" content="尋聖之旅以故事地圖記錄香港的地方歷史與社區記憶。">
   <title>尋聖之旅 · Sacred Journey</title>
-  <link rel="stylesheet" href="./vendor/leaflet/leaflet.css">
-  <link rel="stylesheet" href="./styles.css">
-  <script src="./vendor/leaflet/leaflet.js" defer></script>
-  <script src="./app.js" type="module"></script>
+  <link rel="stylesheet" href="./vendor/leaflet/leaflet.css?v=20261117-map2">
+  <link rel="stylesheet" href="./styles.css?v=20261117-map2">
+  <script src="./vendor/leaflet/leaflet.js?v=20261117-map2" defer></script>
+  <script src="./app.js?v=20261117-map2" type="module"></script>
 </head>
 <body>
   <a class="skip" href="#main" data-copy="skip">跳至內容</a>
@@ -39,12 +39,12 @@
         <p class="edition"><span>01</span><span data-copy="edition">GEYS4010 · 小組原型</span></p>
       </div>
       <figure id="map" class="atlas">
-        <figcaption><span data-copy="mapCaption">香港 · 地區示意</span><span>FIELD MAP / 01</span></figcaption>
+        <figcaption><span data-copy="mapCaption">香港 · 故事地圖</span><span>FIELD MAP / 01</span></figcaption>
         <div id="interactive-map" class="map-area" aria-label="香港故事地圖"></div>
-        <p id="map-status" role="status"></p>
+        <p id="map-status" role="status">正在載入地圖與故事…</p>
         <button id="map-retry" type="button" hidden>重新載入地圖</button>
         <div class="map-footer">
-          <p data-copy="mapNote">點選編號閱讀故事。標記只代表大致地區。</p>
+          <p data-copy="mapNote">只展示已核實並可公開的位置。</p>
           <span data-copy="mapLimit">僅供閱讀</span>
         </div>
       </figure>
