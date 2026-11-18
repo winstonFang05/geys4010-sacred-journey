@@ -10,6 +10,12 @@ Original story links remain in stories.js and each detail page. Coordinates and 
 
 ## Public destinations — 2026-11-19
 
-`access-points.js` records six public entrances and storefronts by story ID, with bilingual venue names, street addresses and links to the published sources. `verifiedAt` records the date of the source check. The storefront for Cheng Cheung Hing is the retail address.
+`access-points.js` records an arrival point for each of the 23 stories. Each entry includes bilingual destination information, supporting links and the date of the published-source check. These are desk checks, without on-site confirmation.
 
-The visitor map continues to use the story's `location` for area markers. Before enabling directions for an access point, verify that Google Maps resolves the venue name and street address to the intended public arrival point. The entrance records use street addresses because gate-level coordinates have not been verified.
+| Use | Count | Visitor directions |
+| --- | ---: | --- |
+| Entrance, storefront or public site | 8 | Route to the named venue. For the shoreline marker, route to its park. |
+| Organised visit | 3 | Use the venue for an arranged activity. For Yi O, the AFCD farm pin identifies the farm and the operator confirms the meeting point for each activity. |
+| Public reference near the story | 12 | Label the link with the actual destination. The historic or private site remains an area marker. The two Hang Tau stories share the same public visitor centre. |
+
+The visitor map uses the story's `location` for area markers. The destination data is available for a later directions feature. Before exposing a route, confirm how Google Maps resolves the name and address, and carry across any arrival instructions. The AFCD publishes the Yi O farm coordinate. Other records identify named destinations by public address without asserting gate-level GPS. For Lin Ma Hang, use the 59K minibus instructions and transit routing, since the permit exemption for the designated road applies to passengers on that service.
