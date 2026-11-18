@@ -3,6 +3,7 @@ import {createAtlas as createOverview} from './geographic-fallback.js';
 
 // Load Leaflet before initialization; public OSM street tiles need no API key.
 export function createAtlas(host,stories,options={}){
+ const pinSize=stories.length>3?30:44;
  const {lang='zh',preview=false,storyUrl,accent='#b85436',ink='#283d31'}=options;
  const zh=lang==='zh';const L=globalThis.L;
  if(!L)return createOverview(host,stories,options);
@@ -25,9 +26,15 @@ export function createAtlas(host,stories,options={}){
   tiles.on('tileload',()=>{tileCount++;clearTimeout(timer);frameElement.classList.add('street-map-ready');frameElement.querySelector('.street-map-loading')?.remove()});
   tiles.on('tileerror',()=>{if(++errorCount>=4)useOverview()});tiles.addTo(map);
   stories.filter(s=>s.location.publish).forEach(s=>{
-   L.circle([s.location.lat,s.location.lng],{radius:preview?1800:1200,color:accent,weight:1,dashArray:'4 5',fillColor:accent,fillOpacity:.07}).addTo(map);
-   const marker=L.marker([s.location.lat,s.location.lng],{keyboard:true,title:s[lang].title,alt:s[lang].title,icon:L.divIcon({className:'story-marker',html:`<span style="background:${ink}">${s.number}</span>`,iconSize:[44,44],iconAnchor:[22,22]})}).addTo(map);
-   marker.bindTooltip(s[lang].title,{direction:'top',offset:[0,-22]});marker.on('click',()=>{location.href=storyUrl(s.id)});
+   L.circle([s.location.lat,s.location.lng],{radius:stories.length>3?400:preview?1800:1200,color:accent,weight:1,dashArray:'4 5',fillColor:accent,fillOpacity:.07}).addTo(map);
+   const marker=L.marker([s.location.lat,s.location.lng],{keyboard:true,title:s[lang].title,alt:s[lang].title,icon:L.divIcon({className:'story-marker',html:`<span style="background:${ink};width:${pinSize}px;height:${pinSize}px">${s.number}</span>`,iconSize:[pinSize,pinSize],iconAnchor:[pinSize/2,pinSize/2]})});
+   const open=()=>{location.href=storyUrl(s.id)};
+   marker.bindTooltip(s[lang].title,{direction:'top',offset:[0,-pinSize/2]});
+   marker.on('click',open);
+   marker.on('add',()=>marker.getElement()?.addEventListener('keydown',event=>{
+    if(event.key==='Enter'||event.key===' '){event.preventDefault();open()}
+   }));
+   marker.addTo(map);
   });
   fit();frame=requestAnimationFrame(fit);
   observer=typeof ResizeObserver!=='undefined'?new ResizeObserver(()=>{if(!removed)map?.invalidateSize({pan:false})}):null;observer?.observe(host);

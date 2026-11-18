@@ -72,6 +72,7 @@ export const copy = {
     contributeBody: '一段回憶、一張有權分享的舊相片，或一份可以查閱的資料，都可以成為故事的起點。請先略去個人資料及不宜公開的位置。',
     contributeStatus: '原型暫未開放收件。你可以下載空白模板，在自己的裝置上整理草稿。',
     download: '下載草稿模板', close: '關閉', all: '全部故事', school: '村校記憶', village: '村落與重建', waterfront: '水岸生活',
+    faith: '民間信仰', craft: '手藝與老店', infrastructure: '交通與設施',
     read: '閱讀故事', source: '資料來源', note: '仍待核實', sample: '公開資料示例',
     count: count => count ? `顯示 ${count} 則故事` : '找不到相符的故事，試試其他關鍵字或分類。'
   },
@@ -91,6 +92,7 @@ export const copy = {
     contributeBody: 'A recollection, a photo you have permission to share, or a public record can start a story. Leave out personal details and sensitive locations.',
     contributeStatus: 'Submissions are currently closed. Download the blank template to prepare a draft on your device.',
     download: 'Download draft template', close: 'Close', all: 'All stories', school: 'Village schools', village: 'Villages & renewal', waterfront: 'Waterfront life',
+    faith: 'Local beliefs', craft: 'Crafts & shops', infrastructure: 'Transport & infrastructure',
     read: 'Read story', source: 'Source', note: 'What still needs checking', sample: 'Example from public sources',
     count: count => count ? `Showing ${count} ${count === 1 ? 'story' : 'stories'}` : 'No matching stories. Try another keyword or category.'
   }

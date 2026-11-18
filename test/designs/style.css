@@ -224,3 +224,10 @@
 .trevonelle .card-body>.image-note{font-size:10px;line-height:1.6;margin:0 0 14px;color:#606b70}
 .trevonelle .hero-caption{gap:20px;line-height:1.6;flex-wrap:wrap}
 .trevonelle .trev-postcard figcaption{font-size:10px;line-height:1.6;letter-spacing:0}
+.story-photo-credit{font-size:.75rem;line-height:1.6;overflow-wrap:anywhere}
+.story-photo-credit a,.story-reference-list a{text-decoration:underline;text-underline-offset:.16em}
+.story-reference-list{padding-inline-start:1.25em}
+.story-reference-list li+li{margin-block-start:.45em}
+
+.archive-expand{margin-top:24px}
+.archive-expand[hidden]{display:none}

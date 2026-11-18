@@ -1,4 +1,4 @@
-import { copy, stories } from './stories.js?v=20261117-map3';
+import { copy, stories } from './stories.js?v=20261119-stories23';
 import { publicLocation, matchingStories, escapeHtml as e, safeUrl } from './map-data.js?v=20261117-map3';
 import { mapConfig } from './map-config.js?v=20261117-map3';
 const $ = s => document.querySelector(s);
@@ -7,6 +7,16 @@ let category = 'all', map, markers, tiles, tileFailed = false, mapTimer;
 const zh = () => language === 'zh';
 const text = (a,b) => zh() ? a : b;
 const locationLabel = s => publicLocation(s) ? (publicLocation(s).precision === 'area' ? text('大致區域 · 非精確舊址','Approximate area · not exact historic site') : text('位置已核實','Verified location')) : text('位置待核實／不公開精確位置','Location unverified / exact location not public');
+function storyImage(s) {
+  const photo = s.photo;
+  if (!photo) return '';
+  return `<figure class="detail-photo"><img src="${e(new URL('./assets/'+photo.src, import.meta.url).href)}" alt="${e(photo.alt[language])}">
+    <figcaption>${e(photo.caption[language])} · <a href="${e(safeUrl(photo.source))}" target="_blank" rel="noopener">${e(photo.credit)}</a> ·
+    <a href="${e(safeUrl(photo.licenseUrl))}" target="_blank" rel="noopener">${e(photo.license)}</a>${photo.adapted ? ' · '+text('網頁縮圖','Web resize') : ''}</figcaption></figure>`;
+}
+function storyReferences(s) {
+  return (s.relatedSources || []).map(ref => `<li><a href="${e(safeUrl(ref.url))}">${e(ref.title[language])} ↗</a></li>`).join('');
+}
 const matches = () => matchingStories(stories, copy, language, category, $('#search').value);
 let homeState = { source: '#stories', scroll: 0 };
 
@@ -38,9 +48,11 @@ function renderMarkers() {
     const p = publicLocation(s); if (!p) return;
     const marker = L.marker([p.lat,p.lng], {
       title: s[language].title, alt: s[language].title, keyboard: true,
-      icon: L.divIcon({className: `story-marker story-label${matched.has(s.id) ? '' : ' is-muted'}`,
-        html: `<b>${e(s.number)}</b><span>${e(s[language].title)}<small>${text("大致區域","Approximate area")}</small></span>`, iconSize:[180,58],iconAnchor:[90,29]})
+      zIndexOffset: matched.size < stories.length && matched.has(s.id) ? 1000 : 0,
+      icon: L.divIcon({className: `story-marker${matched.has(s.id) ? '' : ' is-muted'}`,
+        html: `<b>${e(s.number)}</b>`, iconSize:[28,28],iconAnchor:[14,14]})
     }).addTo(markers);
+    marker.bindTooltip(e(s[language].title), {direction:'top', offset:[0,-12]});
     marker.on('click', () => { rememberHome('#map'); location.hash = `story/${encodeURIComponent(s.id)}`; });
   });
   mapStatus();
@@ -60,7 +72,7 @@ function initMap() {
     mapTimer = setTimeout(() => { if (tiles.isLoading()) { tileFailed = true; mapStatus(); } },10000);
     renderMarkers();
     const points = stories.map(publicLocation).filter(Boolean).map(p=>[p.lat,p.lng]);
-    if(points.length) map.fitBounds(points,{padding:[100,65],maxZoom:11});
+    if(points.length) map.fitBounds(points,{padding:[30,34],maxZoom:11});
   } catch { if (map) map.remove(); map = null; mapStatus(); }
 }
 function rememberHome(source) {
@@ -95,15 +107,16 @@ function renderRoute({focus=false}={}) {
   const s = stories.find(s=>s.id===id), labels=copy[language];
   if (!s) $('#detail-view').innerHTML = `<h1>${text('找不到這個故事','Story not found')}</h1><p>${text('此地點可能已下架或連結有誤。','This location may have been removed, or the link is incorrect.')}</p><a href="#stories">${text('返回故事檔案','Back to stories')}</a>`;
   else {
-    const d=s[language], p=publicLocation(s);
+    const d=s[language], p=publicLocation(s), references=storyReferences(s);
     const route = p?.precision === 'exact' ? `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(`${p.lat},${p.lng}`)}` : null;
     $('#detail-view').innerHTML=`<a id="detail-back" href="${e(homeState.source)}">← ${homeState.source==='#map' ? text('返回地圖','Back to map') : text('返回故事檔案','Back to stories')}</a>
-      <p class="eyebrow">${e(s.number)} / ${e(labels.sample)}</p><p class="area">${e(d.area)} · ${e(labels[s.category])}</p>
-      <h1>${e(d.title)}</h1><p class="story-summary">${e(d.summary)}</p>
+      <p class="eyebrow">${e(s.number)} / ${s.photo ? text('尋聖之旅','SACRED JOURNEY') : e(labels.sample)}</p><p class="area">${e(d.area)} · ${e(labels[s.category])}</p>
+      <h1>${e(d.title)}</h1><p class="story-summary">${e(d.summary)}</p>${storyImage(s)}
       <section class="evidence"><h2>${text('位置與到訪','Location and visiting')}</h2><p>${e(locationLabel(s))}</p>
       ${p ? `<p>${e(p.label?.[language] || "")}<br>${e(p.lat)}, ${e(p.lng)} · ${text('核實日期','Verified')}: ${e(p.verifiedAt)}</p>${route ? `<a href="${e(route)}" target="_blank" rel="noopener">${text("查看前往路線","Get directions")} ↗</a>` : `<p>${text("區域參考點，不提供精確舊址導航。","Area reference only; no navigation to an unverified historic site.")}</p>`}<p><a href="${e(safeUrl(p.source))}">${text('位置資料來源','Location source')}</a></p>` : `<p>${text('不提供未核實的導航目的地。','No unverified navigation destination is provided.')}</p>`}</section>
-      <section class="evidence"><h2>${text('地方故事','The story')}</h2><p>${e(d.body)}</p></section>
-      <section class="evidence"><h2>${e(labels.source)}</h2><p>${e(d.sourceLabel)}</p><a href="${e(safeUrl(s.source))}">${e(d.citation)} ↗</a></section>
+      <section class="evidence"><h2>${text('地方故事','The story')}</h2>${d.body.split('\n\n').map(part=>`<p>${e(part)}</p>`).join('')}</section>
+      <section class="evidence"><h2>${e(labels.source)}</h2><p>${e(d.sourceLabel)}</p><a href="${e(safeUrl(s.source))}">${e(d.citation)} ↗</a>${references ? `<ul>${references}</ul>` : ''}
+      ${s.reviewedAt ? `<p class="detail-review-date">${text('最近資料查核','Last desk review')} · ${e(s.reviewedAt)}</p>` : ''}</section>
       <section class="evidence"><h2>${e(labels.note)}</h2><p>${e(d.note)}</p></section>`;
   }
   if (focus) { $('#detail-view').focus({preventScroll:true}); window.scrollTo(0,0); }
