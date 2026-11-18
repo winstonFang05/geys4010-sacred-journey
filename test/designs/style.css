@@ -217,3 +217,10 @@
 @media(max-width:1000px){.trevonelle .intro-list article{padding:27px 24px;min-height:290px}.trevonelle .intro-list h3{font-size:25px}.trevonelle .intro-list p{font-size:16px}}
 @media(max-width:680px){.trevonelle{font-size:15px}.trevonelle .btn{font-size:14px;min-height:48px;padding:12px 20px}.trevonelle .trev-hero h1{font-size:clamp(36px,9vw,54px)}.trevonelle .trev-hero-copy p:not(.eyebrow){font-size:14px}.trevonelle .trev-intro h2{font-size:36px}.trevonelle .trev-intro-copy>p:not(.eyebrow){font-size:16px}.trevonelle .intro-list{max-width:440px;gap:18px}.trevonelle .intro-list article{min-height:245px;padding:28px}.trevonelle .intro-list h3{font-size:27px;margin-top:20px}.trevonelle .intro-list p{font-size:16px}.trevonelle .section-head h2,.trevonelle .about-grid h2{font-size:34px}.trevonelle .section-head>div:last-child>p{font-size:15px}.trevonelle .about-grid>div>p:not(.lead){font-size:15px}.trevonelle .principles{max-width:440px;gap:18px}.trevonelle .principles>div{min-height:225px;padding:27px}.trevonelle .principles p{font-size:16px}.trevonelle .contribute .lead{font-size:16px}.trevonelle .story-content p{font-size:16px}}
 @media(prefers-reduced-motion:reduce){.trevonelle .trev-reveal{opacity:1;translate:none;transition:none!important}}
+
+/* Hong Kong photographic edition: preserve natural colour, architectural crop. */
+.trevonelle .hero-image{object-position:center 66%;filter:none;opacity:1}
+.trevonelle .card-photo img,.trevonelle .trev-postcard>img{filter:none;opacity:1;object-position:center 60%}
+.trevonelle .card-body>.image-note{font-size:10px;line-height:1.6;margin:0 0 14px;color:#606b70}
+.trevonelle .hero-caption{gap:20px;line-height:1.6;flex-wrap:wrap}
+.trevonelle .trev-postcard figcaption{font-size:10px;line-height:1.6;letter-spacing:0}

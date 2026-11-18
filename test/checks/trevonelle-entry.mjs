@@ -1,0 +1,12 @@
+import {readFileSync,existsSync} from 'node:fs';
+import assert from 'node:assert/strict';
+const root=new URL('../../',import.meta.url);
+const read=p=>readFileSync(new URL(p,root),'utf8');
+const entry=read('test/index.html'), app=read('test/designs/app.js');
+assert.match(entry,/designs\/app.js\?v=hk-heritage/);
+assert.match(app,/isTestHome \? 'trevonelle'/);
+assert.match(app,/香港實景照片/);
+for(const f of ['tang-chung-ling.jpg','wah-chi-path.jpg','hung-shing-temple.jpg']) assert.ok(existsSync(new URL('test/designs/assets/heritage/'+f,root)));
+assert.match(app,/非天真幼稚園舊址/);assert.match(app,/非舊碼頭/);
+assert.doesNotMatch(entry,/src="app.js/);
+console.log('PASS: Trevonelle test entry, licensed local photographs and honest location captions');

@@ -4,5 +4,8 @@
   "created_utc": "2026-11-17",
   "production_path": "../",
   "isolated_static_files": true,
-  "isolated_backend": false
+  "isolated_backend": false,
+  "active_design": "trevonelle",
+  "updated_at": "2026-11-18",
+  "entry": "/geys4010-sacred-journey/test/"
 }
