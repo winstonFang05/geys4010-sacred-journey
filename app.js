@@ -1,4 +1,4 @@
-import { copy, stories } from './stories.js?v=20261119-public-copy';
+import { copy, stories } from './stories.js?v=20261119-original-stories';
 import { publicLocation, matchingStories, escapeHtml as e, safeUrl } from './map-data.js?v=20261117-map3';
 import { mapConfig } from './map-config.js?v=20261117-map3';
 const $ = s => document.querySelector(s);

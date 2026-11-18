@@ -1,53 +1,5 @@
-export const stories = [
-  {
-    id: 'tin-chun', number: '01', category: 'school', location: { status: 'verified', publish: true, precision: 'area', lat: 22.52547, lng: 114.1625, verifiedAt: '2026-11-17', source: 'https://mapcarta.com/15983890', label: {zh: '坪輋一帶，非幼稚園舊址', en: 'Ping Che area, not the former kindergarten site'} },
-    source: 'https://www.cie.hkbu.edu.hk/the-punctum/blog/2026/06/24/in-search-of-tin-chun-kindergarten-a-trilogy-by-dr-miriam-lau-division-of-arts-and-languages/',
-    zh: {
-      area: '新界 · 坪輋一帶', title: '尋找天真幼稚園',
-      summary: '一張學校登記卡留下了地段編號，校友則記得老師和校車。兩種線索能拼出怎樣的村校日常？',
-      body: '研究者 Miriam Lau 以學校登記卡追查天真幼稚園。登記卡上的舊地段編號在她查閱的地圖上已找不到，她再以校友和昔日教師的回憶比對位置。校友記得老師說話的方式和每天接送學生的校車，補足了登記資料之外的生活細節。',
-      sourceLabel: '地方研究（轉引登記卡及校友回憶）', citation: 'Miriam Lau · The Punctum，2026'
-    },
-    en: {
-      area: 'New Territories · Ping Che area', title: 'Searching for Tin Chun Kindergarten',
-      summary: 'A registration card records a lot number. Former pupils remember a teacher and a school bus. Together, they offer a glimpse of village school life.',
-      body: 'Researcher Miriam Lau used a registration card to trace Tin Chun Kindergarten. The old lot number did not appear on the map she consulted, so she compared recollections from former pupils and a former teacher. Memories of a teacher’s manner and the school bus add everyday details to the administrative record.',
-      sourceLabel: 'Local research citing a registration card and former pupils’ memories', citation: 'Miriam Lau · The Punctum, 2026'
-    }
-  },
-  {
-    id: 'ngau-chi-wan', number: '02', category: 'village', location: { status: 'verified', publish: true, precision: 'area', lat: 22.33546, lng: 114.20815, verifiedAt: '2026-11-17', source: 'https://mapcarta.com/N7428926979', label: {zh: '牛池灣村一帶，非個別文物點', en: 'Ngau Chi Wan Village area, not an individual heritage feature'} },
-    source: 'https://www.aab.gov.hk/filemanager/aab/common/202meeting/aab_14_2023-24-a-en.pdf',
-    zh: {
-      area: '九龍 · 牛池灣', title: '牛池灣村的記錄',
-      summary: '重建前的文物影響評估留下了一份記錄清單。從這份清單出發，還可以追問村民怎樣使用這些地方。',
-      body: '2023 年的文物影響評估記下牛池灣村內多處具歷史意義的地方，並建議在重建前整理記錄。這份文件提供了理解重建背景及記錄措施的起點。從評估所列的資料，可以看見重建前的牛池灣村有哪些地方值得記下。',
-      sourceLabel: '政府文物影響評估', citation: '土木工程拓展署 · 古物諮詢委員會文件附件 A，2023'
-    },
-    en: {
-      area: 'Kowloon · Ngau Chi Wan', title: 'Recording Ngau Chi Wan Village',
-      summary: 'A heritage assessment prepared before redevelopment tells us what could be documented. It also opens a question about how villagers used those spaces.',
-      body: 'A 2023 heritage impact assessment documented places of historical interest in Ngau Chi Wan Village and recommended recording them before redevelopment. The report provides a starting point for understanding redevelopment and the proposed recording measures. The places listed in the assessment offer a glimpse of the village as it was before redevelopment.',
-      sourceLabel: 'Government heritage impact assessment', citation: 'CEDD · Antiquities Advisory Board paper, Annex A, 2023'
-    }
-  },
-  {
-    id: 'ap-lei-chau', number: '03', category: 'waterfront', location: { status: 'verified', publish: true, precision: 'area', lat: 22.24376, lng: 114.15307, verifiedAt: '2026-11-17', source: 'https://mapcarta.com/N2193677481', label: {zh: '鴨脷洲大街一帶，以現代巴士站作區域參考，非舊碼頭', en: 'Main Street area, referenced to the modern bus station, not the old pier'} },
-    source: 'https://www.urbandiarist.com/tc/story/Ap-Lei-Chau--Island-of-Plenty',
-    zh: {
-      area: '港島南區 · 鴨脷洲', title: '從大街走到舊碼頭',
-      summary: '一條短巷曾經通向海旁。從街坊的記憶，可以讀到鴨脷洲的交通和岸線變遷。',
-      body: '《城市日記》整理的鴨脷洲街坊回憶提到，倫敦里曾通往倫敦碼頭，島上居民由此乘船往來香港仔一帶。文章把這條小徑和海旁變化並置，讓一條後巷也能成為追索昔日水路的線索。',
-      sourceLabel: '社區口述整理', citation: '《城市日記》· 鴨脷洲：豐饒之島'
-    },
-    en: {
-      area: 'Southern District · Ap Lei Chau', title: 'From Main Street to the old pier',
-      summary: 'A short lane once led to the waterfront. Neighbourhood memories trace how Ap Lei Chau’s transport and shoreline changed.',
-      body: 'Urban Diary’s account of Ap Lei Chau draws on neighbourhood recollections. It describes London Lane as a former path to London Pier, used by passengers travelling across the harbour to the Aberdeen side. A small back lane offers a clue to an earlier network of water crossings.',
-      sourceLabel: 'Published community recollections', citation: 'Urban Diary · Ap Lei Chau: Island of Plenty'
-    }
-  }
-];
+import { originalStories } from '../../original-stories.js?v=20261119-original-stories';
+export const stories = originalStories;
 
 export const copy = {
   zh: {
