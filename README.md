@@ -36,6 +36,6 @@ OSM 公共圖磚屬 best-effort，不保證可用；大量流量上線前須評�
 以遵循新版產品規格「地圖仍可找到全部公開地點」。
 本批不實作評分後台、管理統計、投稿表單或分享圖；原有離線模板仍保留。
 
-檢查：`node --test tests/map.test.mjs`、`python3 tests/static-check.py`。
-瀏覽器檢查腳本 `tests/browser.cjs` 需要 Playwright 與 Chromium；先啟動
+檢查：`node --test automated-tests/map.test.mjs`、`python3 automated-tests/static-check.py`。
+瀏覽器檢查腳本 `automated-tests/browser.cjs` 需要 Playwright 與 Chromium；先啟動
 `python3 -m http.server 8765 --bind 127.0.0.1`。當前環境未能啟動瀏覽器，視覺與真實互動驗收尚未完成。
