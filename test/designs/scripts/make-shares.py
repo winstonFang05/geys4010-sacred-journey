@@ -36,9 +36,8 @@ for c in json.loads(Path('work/share-data.json').read_text()):
                 d.rectangle((x,yq,x+scale-1,yq+scale-1),fill='#151915')
     tx=ox+size+45
     d.text((tx,965),'掃碼，翻開地方故事' if c['lang']=='zh' else 'Scan to read the story',font=font(30,True),fill=ink)
-    d.text((tx,1030),'公開資料示例 / PUBLIC-SOURCE EXAMPLE',font=font(18),fill=accent)
-    d.text((tx,1070),'GEYS4010 · CUHK · Group A09',font=font(20),fill=ink)
+    d.text((tx,1030),'GEYS4010 · CUHK · Group A09',font=font(20),fill=ink)
     d.line((75,1250,1005,1250),fill=accent,width=1)
-    d.text((75,1280),f"DESIGN STUDY / {c['theme'].upper()} / {c['lang'].upper()}",font=font(16),fill=ink)
+    d.text((75,1280),'SACRED JOURNEY · HONG KONG',font=font(16),fill=ink)
     im.save(out/f"{c['theme']}-{c['id']}-{c['lang']}.png",optimize=True)
-print('Created 24 pre-made bilingual share cards with correct story QR URLs.')
+print('Created bilingual story share cards.')

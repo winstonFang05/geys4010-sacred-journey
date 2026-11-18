@@ -1,4 +1,4 @@
-import { copy, stories } from './stories.js?v=20261119-stories23';
+import { copy, stories } from './stories.js?v=20261119-public-copy';
 import { publicLocation, matchingStories, escapeHtml as e, safeUrl } from './map-data.js?v=20261117-map3';
 import { mapConfig } from './map-config.js?v=20261117-map3';
 const $ = s => document.querySelector(s);
@@ -6,7 +6,7 @@ let language = new URLSearchParams(location.search).get('lang') === 'en' ? 'en' 
 let category = 'all', map, markers, tiles, tileFailed = false, mapTimer;
 const zh = () => language === 'zh';
 const text = (a,b) => zh() ? a : b;
-const locationLabel = s => publicLocation(s) ? (publicLocation(s).precision === 'area' ? text('大致區域 · 非精確舊址','Approximate area · not exact historic site') : text('位置已核實','Verified location')) : text('位置待核實／不公開精確位置','Location unverified / exact location not public');
+const locationLabel = s => publicLocation(s) ? (publicLocation(s).precision === 'area' ? text('大致區域 · 非精確舊址','Approximate area · not exact historic site') : text('位置已核實','Verified location')) : text('地區資料見故事','See story for area information');
 function storyImage(s) {
   const photo = s.photo;
   if (!photo) return '';
@@ -36,7 +36,7 @@ function mapStatus() {
   $('#map-status').textContent = !map || tileFailed
     ? text('地圖暫時無法完整載入。仍可從下方列表閱讀故事。','Map is temporarily unavailable or incomplete. Read stories in the list below.')
     : all ? text(`地圖有 ${all} 則故事位置；${matching} 個符合目前搜尋／分類。`, `${all} story locations; ${matching} match the current search / category.`)
-      : text('現有故事位置尚待核實，暫不放置標記。請從下方列表閱讀。','Story locations are not yet verified. No markers are shown; use the list below.');
+      : text('請從下方列表選擇故事。','Choose a story from the list below.');
   $('#map-retry').hidden = !!map && !tileFailed;
 }
 function renderMarkers() {
@@ -110,14 +110,13 @@ function renderRoute({focus=false}={}) {
     const d=s[language], p=publicLocation(s), references=storyReferences(s);
     const route = p?.precision === 'exact' ? `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(`${p.lat},${p.lng}`)}` : null;
     $('#detail-view').innerHTML=`<a id="detail-back" href="${e(homeState.source)}">← ${homeState.source==='#map' ? text('返回地圖','Back to map') : text('返回故事檔案','Back to stories')}</a>
-      <p class="eyebrow">${e(s.number)} / ${s.photo ? text('尋聖之旅','SACRED JOURNEY') : e(labels.sample)}</p><p class="area">${e(d.area)} · ${e(labels[s.category])}</p>
+      <p class="eyebrow">${e(s.number)} / ${text('尋聖之旅','SACRED JOURNEY')}</p><p class="area">${e(d.area)} · ${e(labels[s.category])}</p>
       <h1>${e(d.title)}</h1><p class="story-summary">${e(d.summary)}</p>${storyImage(s)}
       <section class="evidence"><h2>${text('位置與到訪','Location and visiting')}</h2><p>${e(locationLabel(s))}</p>
-      ${p ? `<p>${e(p.label?.[language] || "")}<br>${e(p.lat)}, ${e(p.lng)} · ${text('核實日期','Verified')}: ${e(p.verifiedAt)}</p>${route ? `<a href="${e(route)}" target="_blank" rel="noopener">${text("查看前往路線","Get directions")} ↗</a>` : `<p>${text("區域參考點，不提供精確舊址導航。","Area reference only; no navigation to an unverified historic site.")}</p>`}<p><a href="${e(safeUrl(p.source))}">${text('位置資料來源','Location source')}</a></p>` : `<p>${text('不提供未核實的導航目的地。','No unverified navigation destination is provided.')}</p>`}</section>
+      ${p ? `<p>${e(p.label?.[language] || "")}</p>${route ? `<a href="${e(route)}" target="_blank" rel="noopener">${text("查看前往路線","Get directions")} ↗</a>` : ''}<p><a href="${e(safeUrl(p.source))}">${text('位置資料來源','Location source')}</a></p>${s.visitNotice ? `<p>${e(s.visitNotice[language])}</p>` : ''}` : `<p>${text('請參考故事內的地區資料。','See the story for area information.')}</p>`}</section>
       <section class="evidence"><h2>${text('地方故事','The story')}</h2>${d.body.split('\n\n').map(part=>`<p>${e(part)}</p>`).join('')}</section>
       <section class="evidence"><h2>${e(labels.source)}</h2><p>${e(d.sourceLabel)}</p><a href="${e(safeUrl(s.source))}">${e(d.citation)} ↗</a>${references ? `<ul>${references}</ul>` : ''}
-      ${s.reviewedAt ? `<p class="detail-review-date">${text('最近資料查核','Last desk review')} · ${e(s.reviewedAt)}</p>` : ''}</section>
-      <section class="evidence"><h2>${e(labels.note)}</h2><p>${e(d.note)}</p></section>`;
+      </section>`;
   }
   if (focus) { $('#detail-view').focus({preventScroll:true}); window.scrollTo(0,0); }
 }
