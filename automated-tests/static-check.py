@@ -20,4 +20,13 @@ assert 'OpenStreetMap</a> contributors' in (root/'map-config.js').read_text()
 assert 'preserve' in (root/'vendor/leaflet/leaflet.js').read_text()[:100]
 print('PASS: IDs, HTML assets, module imports, detail-view migration, no SVG positions, OSM attribution, Leaflet vendor header')
 
-assert "?v=20261119-original-stories" in (root/"index.html").read_text()
+entry = (root/'index.html').read_text()
+production = (root/'production/app.js').read_text()
+assert './production/app.js?v=20261119-trevonelle-production' in entry
+assert "const theme = 'trevonelle';" in production
+assert "'sacred-journey-production-v1'" in production
+assert "'#explore'||route==='#map'" in production
+for source in ('index.html','production/app.js','production/style.css','production/config.js'):
+    assert '/test/' not in (root/source).read_text(), f'sandbox dependency: {source}'
+assert len(list((root/'production/assets/share').glob('trevonelle-*.png'))) == 46
+print('PASS: production Trevonelle entry, separate sandbox and story shares')
