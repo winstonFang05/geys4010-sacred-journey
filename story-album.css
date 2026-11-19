@@ -1,0 +1,138 @@
+.story-cover.story-album {
+  margin: 0;
+  padding: 12px;
+  background: #fff;
+  border: 1px solid #e0e5e9;
+  border-radius: 24px;
+}
+
+.album-stack {
+  position: relative;
+  isolation: isolate;
+  margin-bottom: 12px;
+}
+
+.album-stack::before,
+.album-stack::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  inset: 8px 14px -5px;
+  border: 1px solid #d9cec0;
+  border-radius: 16px;
+  background: #eee8de;
+}
+
+.album-stack::after {
+  z-index: -2;
+  inset: 12px 26px -10px;
+  background: #f8f5ef;
+}
+
+.album-frame {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid #e8e1d8;
+  border-radius: 16px;
+  background: #f5f1ea;
+}
+
+.story-cover .album-image {
+  display: block;
+  width: 100%;
+  height: clamp(290px, 34vw, 510px);
+  border-radius: 0;
+  object-fit: contain;
+}
+
+.album-frame .cover-number {
+  inset: 12px auto auto 12px;
+  padding: 9px;
+  border-radius: 6px;
+}
+
+.album-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  min-height: 78px;
+  padding: 7px 4px 1px;
+}
+
+.album-caption {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.album-caption-line,
+.album-photo-credit {
+  display: block;
+  font-size: 12px;
+  line-height: 1.45;
+}
+
+.album-photo-kind {
+  display: inline-block;
+  margin-inline-end: .6em;
+  color: var(--accent, #9e3a2d);
+  font-weight: 650;
+}
+
+.album-photo-credit {
+  margin-top: 5px;
+  color: #555f65;
+  font-size: 11px;
+}
+
+.album-photo-credit a {
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.album-controls {
+  display: flex;
+  flex: none;
+  align-items: center;
+  gap: 7px;
+}
+
+.album-controls button {
+  display: grid;
+  width: 44px;
+  height: 44px;
+  place-items: center;
+  padding: 0;
+  border: 1px solid #dfe3e5;
+  border-radius: 50%;
+  background: #fff;
+  color: #1f272b;
+  font-size: 18px;
+  line-height: 1;
+}
+
+.album-controls button:hover {
+  border-color: #242a2e;
+  background: #242a2e;
+  color: #fff;
+}
+
+.album-controls button:focus-visible {
+  outline: 2px solid var(--accent, #9e3a2d);
+  outline-offset: 2px;
+}
+
+.album-count {
+  min-width: 34px;
+  text-align: center;
+  color: #555f65;
+  font-size: 11px;
+  font-variant-numeric: tabular-nums;
+}
+
+@media (max-width: 680px) {
+  .story-cover.story-album { padding: 8px; border-radius: 20px; }
+  .story-cover .album-image { height: clamp(205px, 63vw, 365px); }
+  .album-bar { align-items: flex-start; gap: 6px; }
+  .album-controls { gap: 3px; }
+}
