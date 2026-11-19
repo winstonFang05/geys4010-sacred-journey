@@ -233,3 +233,9 @@
 .archive-expand[hidden]{display:none}
 
 .story-intro-copy .lead:lang(zh), .story-content .body-text:lang(zh) { line-break: strict; }
+
+/* Editorial cover for test atlas records without a cleared site photograph. */
+.urban-record-cover{display:grid;place-content:center;justify-items:center;gap:.6rem;width:100%;height:100%;min-height:10rem;background:#e4ddbd;color:#304738;text-align:center;padding:1rem;box-sizing:border-box}
+.urban-record-cover svg{display:block;width:min(8rem,60%);height:auto}
+.urban-record-cover span{font-size:.8rem;letter-spacing:.05em;overflow-wrap:anywhere}
+.urban-story-cover .urban-record-cover{min-height:clamp(15rem,34vw,28rem);border-radius:inherit}
