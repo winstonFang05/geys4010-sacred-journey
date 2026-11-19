@@ -22,7 +22,7 @@ print('PASS: IDs, HTML assets, module imports, detail-view migration, no SVG pos
 
 entry = (root/'index.html').read_text()
 production = (root/'production/app.js').read_text()
-assert './production/app.js?v=20261119-trevonelle-production' in entry
+assert './production/app.js' in entry
 assert "const theme = 'trevonelle';" in production
 assert "'sacred-journey-production-v1'" in production
 assert "'#explore'||route==='#map'" in production

@@ -1,17 +1,17 @@
-import { originalStories } from './original-stories.js?v=20261119-original-stories';
-import { fieldStories } from './new-territories-stories.js?v=20261119-public-copy';
+import { originalStories } from './original-stories.js?v=20261119-copyedit';
+import { fieldStories } from './new-territories-stories.js?v=20261119-copyedit';
 
 export const stories = [...originalStories, ...fieldStories];
 
 export const copy = {
   zh: {
     skip: '跳至內容', navMap: '故事地圖', navStories: '故事檔案', navContribute: '分享線索', navAbout: '關於計劃',
-    eyebrow: '香港社區文化地圖', headline: '在香港，\n尋一段地方故事。',
+    eyebrow: '香港社區文化地圖', headline: '在香港\n尋一段地方故事',
     intro: '從村校、老街到街坊熟悉的日常空間，沿着地圖閱讀香港的地方歷史與社區記憶。',
     explore: '探索故事地圖', edition: '香港中文大學 · GEYS4010', mapCaption: '香港 · 故事地圖',
     nt: '新界', kowloon: '九龍', hk: '香港島', harbour: '維多利亞港',
     mapNote: '點選故事名稱閱讀；虛線標記為大致區域，並非精確舊址。', mapLimit: '列表亦可閱讀所有故事',
-    archiveLabel: '地方誌 / 01', storiesTitle: '沿着地方，讀故事', storiesIntro: '23 則地方故事，從檔案、研究和已刊載的社區記憶出發。',
+    archiveLabel: '地方誌 / 01', storiesTitle: '沿着地方讀故事', storiesIntro: '23 則地方故事，從檔案、研究和已刊載的社區記憶出發。',
     search: '搜尋故事', placeholder: '地名、題材或關鍵字', filters: '故事分類', navLabel: '主要導覽',
     aboutLabel: '關於尋聖', aboutTitle: '地方由記憶留下來',
     aboutBody: '尋聖之旅由香港中文大學 GEYS4010 學生策劃，透過照片、地方研究和社區記憶，帶你認識香港少有人留意的地方。',

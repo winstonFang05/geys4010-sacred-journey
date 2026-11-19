@@ -1,4 +1,4 @@
-import { originalStories } from '../../original-stories.js?v=20261119-original-stories';
+import { originalStories } from '../../original-stories.js?v=20261119-copyedit';
 export const stories = originalStories;
 
 export const copy = {
