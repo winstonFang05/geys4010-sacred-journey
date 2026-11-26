@@ -246,3 +246,4 @@
 .urban-record-cover svg{display:block;width:min(8rem,60%);height:auto}
 .urban-record-cover span{font-size:.8rem;letter-spacing:.05em;overflow-wrap:anywhere}
 .urban-story-cover .urban-record-cover{min-height:clamp(15rem,34vw,28rem);border-radius:inherit}
+.trevonelle .urban-story-photo>img{height:auto}

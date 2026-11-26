@@ -5,6 +5,23 @@ export const urbanStories = [
     "number": "24",
     "category": "infrastructure",
     "urbanTest": true,
+    "photo": {
+      "src": "urban-stories/chun-yeung-tram-market.webp",
+      "kind": "site",
+      "caption": {
+        "zh": "2016 年，電車穿過北角春秧街街市。",
+        "en": "A tram passes through Chun Yeung Street Market in North Point in 2016."
+      },
+      "alt": {
+        "zh": "街市攤檔之間的雙層電車",
+        "en": "A double-decker tram among market stalls"
+      },
+      "source": "https://commons.wikimedia.org/wiki/File:North_Point_Chun_Yeung_Street.jpg",
+      "credit": "Minseong Kim",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "adapted": true
+    },
     "location": {
       "status": "verified",
       "publish": true,
@@ -58,6 +75,23 @@ export const urbanStories = [
     "number": "25",
     "category": "craft",
     "urbanTest": true,
+    "photo": {
+      "src": "urban-stories/biu-kee-mahjong.webp",
+      "kind": "context",
+      "caption": {
+        "zh": "香港麻雀牌及配件。工藝參考，圖中麻雀牌的製作者未經核實。",
+        "en": "Hong Kong mahjong tiles and accessories. Craft reference photograph featuring tiles from an unverified maker."
+      },
+      "alt": {
+        "zh": "排列整齊的香港麻雀牌及配件",
+        "en": "A laid-out set of Hong Kong mahjong tiles and accessories"
+      },
+      "source": "https://commons.wikimedia.org/wiki/File:HK_Mahjong_Tiles_with_equipment.jpg",
+      "credit": "Cangjie6",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "adapted": true
+    },
     "location": {
       "status": "verified",
       "publish": true,
@@ -111,6 +145,23 @@ export const urbanStories = [
     "number": "26",
     "category": "craft",
     "urbanTest": true,
+    "photo": {
+      "src": "urban-stories/cheung-shing-fans.webp",
+      "kind": "site",
+      "caption": {
+        "zh": "2022 年，祥盛檀香扇莊位於上海街 185 號的店面。",
+        "en": "The Cheung Shing Fans Factory shopfront at 185 Shanghai Street in 2022."
+      },
+      "alt": {
+        "zh": "祥盛檀香扇莊的紅字招牌及店面",
+        "en": "The red-lettered Cheung Shing Fans Factory sign and storefront"
+      },
+      "source": "https://commons.wikimedia.org/wiki/File:HK_YTM_%E4%BD%90%E6%95%A6_Jordan_%E4%B8%8A%E6%B5%B7%E8%A1%97_185_Shanghai_Street_shop_%E7%A5%A5%E7%9B%9B%E6%AA%80%E9%A6%99%E6%89%87%E8%8E%8A_Cheung_Shing_Fans_Factory_August_2022_Px3_01.jpg",
+      "credit": "Pinktigra TADOU",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "adapted": true
+    },
     "location": {
       "status": "verified",
       "publish": true,
@@ -164,6 +215,23 @@ export const urbanStories = [
     "number": "27",
     "category": "craft",
     "urbanTest": true,
+    "photo": {
+      "src": "urban-stories/pang-jai-fabric-market.webp",
+      "kind": "site",
+      "caption": {
+        "zh": "2025 年的通州街臨時街市外觀，棚仔布商遷入的市場。",
+        "en": "The exterior of Tung Chau Street Temporary Market, where Pang Jai fabric merchants relocated, in 2025."
+      },
+      "alt": {
+        "zh": "天橋下的通州街臨時街市外觀",
+        "en": "The exterior of Tung Chau Street Temporary Market beneath a flyover"
+      },
+      "source": "https://commons.wikimedia.org/wiki/File:Tung_Chau_Street_Temporary_Market_2025.jpg",
+      "credit": "Tombus20032000",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "adapted": true
+    },
     "location": {
       "status": "verified",
       "publish": true,
@@ -217,6 +285,23 @@ export const urbanStories = [
     "number": "28",
     "category": "craft",
     "urbanTest": true,
+    "photo": {
+      "src": "urban-stories/ming-sang-steamers.webp",
+      "kind": "context",
+      "caption": {
+        "zh": "香港街頭擺放的傳統竹蒸籠。工藝參考，製作者未經核實。",
+        "en": "Traditional bamboo steamers on a Hong Kong street. The maker of the baskets has not been verified."
+      },
+      "alt": {
+        "zh": "街邊不同尺寸的成疊竹蒸籠",
+        "en": "Stacks of differently sized bamboo steamers set out on the street"
+      },
+      "source": "https://commons.wikimedia.org/wiki/File:Dim_Sum_Steam_Baskets_by_tracyhunter_in_HK.jpg",
+      "credit": "tracyhunter",
+      "license": "CC BY 2.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+      "adapted": true
+    },
     "location": {
       "status": "verified",
       "publish": true,
@@ -270,6 +355,23 @@ export const urbanStories = [
     "number": "29",
     "category": "waterfront",
     "urbanTest": true,
+    "photo": {
+      "src": "urban-stories/pui-kee-shipyard.webp",
+      "kind": "historic",
+      "caption": {
+        "zh": "2012 年的譚公廟道船廠，畫面包括培記船廠。",
+        "en": "Shipyards on Tam Kung Temple Road in 2012, including Pui Kee Shipyard."
+      },
+      "alt": {
+        "zh": "譚公廟道舊船廠的招牌和入口",
+        "en": "Signs and entrances of shipyards on Tam Kung Temple Road"
+      },
+      "source": "https://commons.wikimedia.org/wiki/File:HK_Shau_Kei_Wan_%E8%AD%9A%E5%85%AC%E5%BB%9F%E9%81%93_Tam_Kung_Temple_Road_02_%E8%88%B9%E5%BB%A0_Sun_Shing_Hing_%E5%9F%B9%E8%A8%98_Shipyards_April-2012.JPG",
+      "credit": "Unionswaytatoe",
+      "license": "CC BY-SA 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+      "adapted": true
+    },
     "location": {
       "status": "verified",
       "publish": true,
@@ -323,6 +425,23 @@ export const urbanStories = [
     "number": "30",
     "category": "infrastructure",
     "urbanTest": true,
+    "photo": {
+      "src": "urban-stories/wan-chai-orange-house.webp",
+      "kind": "site",
+      "caption": {
+        "zh": "2021 年，灣仔景星街 8 號的橙屋。",
+        "en": "The Orange House at 8 King Sing Street in Wan Chai in 2021."
+      },
+      "alt": {
+        "zh": "灣仔景星街橙屋的橙色外牆",
+        "en": "The orange facade of the Orange House on King Sing Street"
+      },
+      "source": "https://commons.wikimedia.org/wiki/File:%E7%81%A3%E4%BB%94_Wan_Chai_%E6%99%AF%E6%98%9F%E8%A1%97_King_Sing_Street_%E6%A9%99%E5%B1%8B_Orange_House,_2021.jpg",
+      "credit": "Lord Jaraxxus",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "adapted": true
+    },
     "location": {
       "status": "verified",
       "publish": true,
@@ -376,6 +495,23 @@ export const urbanStories = [
     "number": "31",
     "category": "craft",
     "urbanTest": true,
+    "photo": {
+      "src": "urban-stories/kwok-kee-woodcarving.webp",
+      "kind": "context",
+      "caption": {
+        "zh": "上海街另一家木雕店的金漆木雕，作同業工藝參考。",
+        "en": "Gilded woodcarving from another workshop on Shanghai Street, shown as a reference for the local craft."
+      },
+      "alt": {
+        "zh": "金漆木雕的龍形細節",
+        "en": "Detail of a gilded wooden dragon"
+      },
+      "source": "https://commons.wikimedia.org/wiki/File:HK_JD_%E4%BD%90%E6%95%A6_Jordan_%E4%B8%8A%E6%B5%B7%E8%A1%97_Shanghai_Street_shop_wooden_artwork_near_Kansu_Street_March_2020_SS2_03.jpg",
+      "credit": "Daivewoi Huongs",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "adapted": true
+    },
     "location": {
       "status": "verified",
       "publish": true,
