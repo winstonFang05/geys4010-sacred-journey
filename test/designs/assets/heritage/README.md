@@ -1,6 +1,6 @@
 # Hong Kong photograph credits
 
-These originals are distributed unchanged. CSS crops the display; the sources' dates do not imply current conditions.
+These originals are distributed unchanged. CSS crops the display; the sources' dates do not imply current conditions. The `*-cover.webp` files are 1800-pixel-wide WebP copies of the matching originals for the homepage slideshow, using the same credits and licences.
 
 | File | Place and photographer | Source and licence |
 | --- | --- | --- |
