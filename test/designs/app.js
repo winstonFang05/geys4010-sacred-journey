@@ -1,4 +1,5 @@
 import {renderStoryAlbum, bindStoryAlbum} from '../../story-album.js?v=20261119-album';
+import {albumPhotos} from '../../story-album-photos.js?v=20261119-album';
 import {createAtlas} from './atlas.js?v=20261119-story-focus';
 import {stories as sampleStories, copy} from './data.js?v=20261119-copyedit';
 import {fieldStories} from '../../new-territories-stories.js?v=20261119-copyedit';
@@ -94,11 +95,16 @@ function mapTeaser(){return `<section class="map-teaser section">${sectionHead('
 function about(){return `<section class="about-section section" id="about"><p class="eyebrow">PLACES. PEOPLE. MEMORY.</p><div class="about-grid"><h2>${t('地方因記憶而留下','Places live on because people remember.')}</h2><div><p class="lead">${t('一條小巷、一座村校、一段往返海岸的日常，都藏着一座城市的故事。','A lane, a village school, an everyday crossing. Each holds a piece of the city.')}</p><p>${copy[lang].aboutBody}</p><a href="${link('#contribute')}" class="under-link">${t('一起留下地方記憶','Help preserve a local memory')} ↗</a></div></div><div class="principles"><div><small>01 / RECORD</small><h3>${t('留住線索','Keep the traces')}</h3><p>${t('照片、檔案與有出處的口述記憶。','Photographs, records and sourced recollections.')}</p></div><div><small>02 / LISTEN</small><h3>${t('聽見街坊','Listen to the community')}</h3><p>${t('從街坊回憶認識地方生活。','Discover local life through neighbourhood memories.')}</p></div><div><small>03 / SHARE</small><h3>${t('讓記憶流傳','Pass the memory on')}</h3><p>${t('用雙語故事，連結地方與下一代。','Connect places and generations through bilingual stories.')}</p></div></div></section>`;}
 function contribute(){return `<section class="contribute section" id="contribute"><div><p class="eyebrow">THE STORY CONTINUES WITH YOU</p><h2>${t('下一段故事<br>也許你知道','You might know<br>the next story.')}</h2></div><div><p class="lead">${copy[lang].contributeBody}</p><a class="btn primary" href="${link('#submit')}">${t('分享地區故事','Share a local story')} ${arrow}</a></div></section>`;}
 
-function coverFromStory(id, zh, en){
- const {photo} = fieldStories.find(story=>story.id===id);
- return {...photo, file:id, title:()=>t(zh,en), creditLine:()=>`${t(zh,en)} · ${photo.credit} / ${photo.license}`};
+function coverPhoto(file, photo, names=photo.caption){
+ const title = ()=>t(names.zh,names.en);
+ return {...photo, file, title, creditLine:()=>`${title()} · ${photo.credit} / ${photo.license}`};
 }
 
+function coverFromStory(id, zh, en){
+ return coverPhoto(id, fieldStories.find(story=>story.id===id).photo, {zh,en});
+}
+
+const trevHeroAlbumPhotos = Object.values(albumPhotos).flat();
 const trevHeroPhotos = [
  {file:'tang-chung-ling', creditLine:()=>heritageNote()},
  coverFromStory('tse-hall','西貢市鎮及沿岸航拍','Sai Kung town and coastline from the air'),
@@ -110,16 +116,48 @@ const trevHeroPhotos = [
  {file:'hung-shing-temple', creditLine:()=>heritageNote({id:'ap-lei-chau'}, false)},
  coverFromStory('sin-hing','大埔泰亨善慶書室','Sin Hing Study Hall, Tai Hang, Tai Po'),
  coverFromStory('seven-sisters','坪洲仙姊廟','Seven Sisters Temple, Peng Chau'),
+ ...[
+  'ap-lei-chau-03', 'tin-chun-02', 'yi-o-04',
+  'yuen-yuen-04', 'shrimp-sauce-01', 'shrimp-sauce-04',
+  'kwok-kam-kee-05', 'sing-hing-01', 'sam-shing-04',
+  'lau-hall-02',
+ ].map(file=>coverPhoto(file, trevHeroAlbumPhotos.find(photo=>photo.src===`story-albums/${file}.webp`))),
 ];
 const trevHeroAsset = '/geys4010-sacred-journey/test/designs/assets/heritage/';
+const trevHeroStorageKey = 'sacred-journey-test-last-cover';
 let trevHeroTimer;
 let trevHeroPaused = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+let trevHeroIndex;
+let trevHeroQueue = [];
+
+function shuffleTrevHero(lastFile){
+ trevHeroQueue = trevHeroPhotos.map((_,index)=>index);
+ for(let i=trevHeroQueue.length-1; i>0; i--){
+  const j = Math.floor(Math.random()*(i+1));
+  [trevHeroQueue[i],trevHeroQueue[j]] = [trevHeroQueue[j],trevHeroQueue[i]];
+ }
+ // Avoid repeating the last photo when starting a fresh sequence.
+ if(trevHeroPhotos[trevHeroQueue[0]].file===lastFile) trevHeroQueue.push(trevHeroQueue.shift());
+}
+
+function rememberTrevHero(index){
+ trevHeroIndex = index;
+ try{localStorage.setItem(trevHeroStorageKey,trevHeroPhotos[index].file);}catch{}
+}
 
 function trevHeroImages(){
- return trevHeroPhotos.map(({file, creditLine}, i)=>`<img
-   class="hero-image${i===0?' is-current':''}" data-photo="${file}"
-   ${i===0?'src':'data-src'}="${trevHeroAsset}${file}-cover.webp"
-   alt="${esc(creditLine())}" decoding="async" ${i===0?'fetchpriority="high"':'aria-hidden="true"'}>`).join('');
+ if(trevHeroIndex===undefined){
+  let lastFile;
+  try{lastFile = localStorage.getItem(trevHeroStorageKey);}catch{}
+  shuffleTrevHero(lastFile);
+  rememberTrevHero(trevHeroQueue.shift());
+ }
+ return trevHeroPhotos.map(({file, creditLine}, i)=>{
+  const active = i===trevHeroIndex;
+  return `<img class="hero-image${active?' is-current':''}" data-photo="${file}"
+   ${active?'src':'data-src'}="${trevHeroAsset}${file}-cover.webp"
+   alt="${esc(creditLine())}" decoding="async" ${active?'fetchpriority="high"':'aria-hidden="true"'}>`;
+ }).join('');
 }
 
 function setupTrevHero(){
@@ -128,16 +166,17 @@ function setupTrevHero(){
  if(!toggle) return;
  const photos = [...app.querySelectorAll('.trev-hero .hero-image')];
  const credit = app.querySelector('.hero-photo-credit');
- let current = photos[0];
- let nextIndex = 1;
+ let current = photos[trevHeroIndex];
 
  function loadNext(){
-  const next = photos[nextIndex];
+  if(!trevHeroQueue.length) shuffleTrevHero(current.dataset.photo);
+  const next = photos[trevHeroQueue[0]];
   if(!next.hasAttribute('src')) next.src = next.dataset.src;
  }
 
  function advance(){
   if(document.hidden) return;
+  const nextIndex = trevHeroQueue[0];
   const next = photos[nextIndex];
   if(!next.complete) return;
   if(next.naturalWidth){
@@ -147,8 +186,9 @@ function setupTrevHero(){
    next.removeAttribute('aria-hidden');
    credit.textContent = next.alt;
    current = next;
+   rememberTrevHero(nextIndex);
   }
-  nextIndex = (nextIndex+1)%photos.length;
+  trevHeroQueue.shift();
   loadNext();
  }
 
@@ -168,7 +208,7 @@ function setupTrevHero(){
  updateRotation();
 }
 
-function trevonelleHome(){return `<section class="trev-hero">${trevHeroImages()}<div class="hero-shade"></div><div class="trev-hero-copy"><p class="eyebrow glass-label">HONG KONG · STORIES WORTH FINDING</p><h1>${t('尋一段故事<br>走近一座城','GO BEYOND<br>THE FAMILIAR.')}</h1><p>${t('慢下來，看見街角的信仰、村落的記憶，<br class="desktop">以及讓地方成為地方的人。','Local stories, everyday places, and the people who give a city its character.')}</p><div class="hero-buttons">${button(link('#explore'),t('探索故事地圖','Explore the map'))}${button(link('#stories'),t('沿着地方讀故事','Read the stories'),'light')}</div></div><a class="floating-story" href="${link('#story/ap-lei-chau')}"><div><small>THE NEXT STORY</small><span>${t('水岸生活','Waterfront life')}</span></div><h3>${t('從大街走到舊碼頭','From Main Street<br>to the old pier')}</h3><p>03 / ${t('港島南區 · 鴨脷洲','Ap Lei Chau · Hong Kong')}</p><span class="circle-arrow">↗</span></a></section><div class="hero-caption"><p class="hero-photo-credit">${trevHeroPhotos[0].creditLine()}</p><button class="hero-rotation-toggle" type="button" hidden></button></div><section class="trev-intro section"><figure class="trev-postcard"><img src="/geys4010-sacred-journey/test/designs/assets/heritage/hung-shing-temple.jpg" alt="${heritageNote(stories[2])}"><div class="record-badge" role="group" aria-label="${t('目前收錄 '+stories.length+' 處地方記錄','Currently documenting '+stories.length+' local places')}"><strong aria-hidden="true">${String(stories.length).padStart(2,'0')}</strong><small aria-hidden="true">${t('地方記錄','LOCAL RECORDS')}</small></div><figcaption>${heritageNote(stories[2])}</figcaption></figure><div class="trev-intro-copy"><p class="eyebrow">A DIFFERENT WAY TO SEE</p><h2>${t('少一點匆忙<br><em>多一點理解</em>','LESS RUSHING.<br><em>MORE BELONGING.</em>')}</h2><p>${t('不只記下地方的名字，更記下人們怎樣生活、使用和記得它。從一張舊照片到一段街坊回憶，讓熟悉的香港，多一層故事。','A place is more than its name. Discover how people lived in it, used it and remember it, through records and everyday stories.')}</p><a class="btn dark" href="${link('#about')}">${t('認識這個計劃','Meet the project')} ↗</a></div><div class="intro-list">${[['01',t('有出處的記錄','SOURCED RECORDS'),t('從照片、檔案與已刊載的研究開始，保留每段故事的來源。','Begin with photographs, archives and published research. Keep the source behind each story.')],['02',t('社區的聲音','LOCAL PERSPECTIVES'),t('聽見街坊的生活記憶，理解地方與人的關係。','Listen to everyday memories and the people who give a place its character.')],['03',t('一起留下記憶','SHARED MEMORIES'),t('以雙語故事、地圖與社區參與，讓地方記憶繼續流傳。','Connect bilingual stories, maps and community participation to pass local memories on.')]].map(([n,title,text])=>`<article><small>${n}</small><h3>${title}</h3><p>${text}</p></article>`).join('')}</div></section>${archive()}${mapTeaser()}${about()}${contribute()}`;}
+function trevonelleHome(){return `<section class="trev-hero">${trevHeroImages()}<div class="hero-shade"></div><div class="trev-hero-copy"><p class="eyebrow glass-label">HONG KONG · STORIES WORTH FINDING</p><h1>${t('尋一段故事<br>走近一座城','GO BEYOND<br>THE FAMILIAR.')}</h1><p>${t('慢下來，看見街角的信仰、村落的記憶，<br class="desktop">以及讓地方成為地方的人。','Local stories, everyday places, and the people who give a city its character.')}</p><div class="hero-buttons">${button(link('#explore'),t('探索故事地圖','Explore the map'))}${button(link('#stories'),t('沿着地方讀故事','Read the stories'),'light')}</div></div><a class="floating-story" href="${link('#story/ap-lei-chau')}"><div><small>THE NEXT STORY</small><span>${t('水岸生活','Waterfront life')}</span></div><h3>${t('從大街走到舊碼頭','From Main Street<br>to the old pier')}</h3><p>03 / ${t('港島南區 · 鴨脷洲','Ap Lei Chau · Hong Kong')}</p><span class="circle-arrow">↗</span></a></section><div class="hero-caption"><p class="hero-photo-credit">${trevHeroPhotos[trevHeroIndex].creditLine()}</p><button class="hero-rotation-toggle" type="button" hidden></button></div><section class="trev-intro section"><figure class="trev-postcard"><img src="/geys4010-sacred-journey/test/designs/assets/heritage/hung-shing-temple.jpg" alt="${heritageNote(stories[2])}"><div class="record-badge" role="group" aria-label="${t('目前收錄 '+stories.length+' 處地方記錄','Currently documenting '+stories.length+' local places')}"><strong aria-hidden="true">${String(stories.length).padStart(2,'0')}</strong><small aria-hidden="true">${t('地方記錄','LOCAL RECORDS')}</small></div><figcaption>${heritageNote(stories[2])}</figcaption></figure><div class="trev-intro-copy"><p class="eyebrow">A DIFFERENT WAY TO SEE</p><h2>${t('少一點匆忙<br><em>多一點理解</em>','LESS RUSHING.<br><em>MORE BELONGING.</em>')}</h2><p>${t('不只記下地方的名字，更記下人們怎樣生活、使用和記得它。從一張舊照片到一段街坊回憶，讓熟悉的香港，多一層故事。','A place is more than its name. Discover how people lived in it, used it and remember it, through records and everyday stories.')}</p><a class="btn dark" href="${link('#about')}">${t('認識這個計劃','Meet the project')} ↗</a></div><div class="intro-list">${[['01',t('有出處的記錄','SOURCED RECORDS'),t('從照片、檔案與已刊載的研究開始，保留每段故事的來源。','Begin with photographs, archives and published research. Keep the source behind each story.')],['02',t('社區的聲音','LOCAL PERSPECTIVES'),t('聽見街坊的生活記憶，理解地方與人的關係。','Listen to everyday memories and the people who give a place its character.')],['03',t('一起留下記憶','SHARED MEMORIES'),t('以雙語故事、地圖與社區參與，讓地方記憶繼續流傳。','Connect bilingual stories, maps and community participation to pass local memories on.')]].map(([n,title,text])=>`<article><small>${n}</small><h3>${title}</h3><p>${text}</p></article>`).join('')}</div></section>${archive()}${mapTeaser()}${about()}${contribute()}`;}
 function accessionHome(){const entries=[['#explore',t('故事地圖','Story map'),t('從地方開始','Start with a place')],['#stories',t('地方檔案','The archive'),t('有出處的記錄','Records with sources')],['#story/ap-lei-chau',t('街坊記憶','Neighbourhood memory'),t('從大街走到舊碼頭','From Main Street to the old pier')],['#about',t('關於尋聖','About the project'),t('我們為何記錄','Why we remember')],['#submit',t('分享線索','Share a lead'),t('補充或新增故事','Add to the record')],['#credits',t('閱讀須知','Before you explore'),t('資料與到訪','Sources and visiting')]];return `<section class="acc-hero"><div class="acc-hero-top"><p class="eyebrow">A COMMUNITY ARCHIVE OF HONG KONG</p><h1>${t('一個地方<br>不只一段歷史','A place holds<br>more than history.')}</h1></div><img class="acc-hero-image" src="/geys4010-sacred-journey/test/designs/assets/accession-hero.jpg" alt="${figureNote()}"><div class="acc-hero-bottom"><div><small>PL. 01 / THE MEMORY OF EVERYDAY LIFE</small><h3>${t('讓日常成為值得保存的記錄','The extraordinary record of everyday life.')}</h3>${note()}</div><div><p>${t('從村校、老街到水岸生活，讓檔案與社區記憶一起，講述香港的地方故事。','From village schools to old streets and waterfront life: records and recollections tell the story together.')}</p>${button(link('#explore'),t('探索故事地圖','Explore the map'),'dark')}</div></div></section><section class="wayfinding section"><p class="eyebrow">FIND YOUR WAY</p><div class="wayfinding-grid">${entries.map(([href,title,sub],i)=>`<a href="${link(href)}"><small>0${i+1}</small><div><h3>${title}</h3><p>${sub}</p></div><span>↗</span></a>`).join('')}</div></section>${archive()}<section class="acc-feature section"><img src="/geys4010-sacred-journey/test/designs/assets/accession-map.jpg" alt="${figureNote()}" loading="lazy"><div><p class="eyebrow">FROM THE RECORD / 03</p><h2>${t('一條小巷<br>通向昔日的海','A small lane.<br>A former shoreline.')}</h2><p>${stories[2][lang].summary}</p>${button(link('#story/ap-lei-chau'),t('讀這段地方記憶','Read this local memory'),'dark')}${note()}</div></section>${mapTeaser()}<section class="visit-ticket section"><div class="ticket-title"><small>BEFORE YOU GO</small><h2>${t('帶着理解<br>走進地方','A thoughtful<br>way to visit.')}</h2></div><div class="ticket-fields"><div><small>LOCATIONS</small><p>${t('查看地圖範圍','Find the area on the map')}</p></div><div><small>ACCESS</small><p>${t('尊重場地與居民意願','Respect residents and access')}</p></div><div><small>PHOTOGRAPHY</small><p>${t('拍攝與採訪先徵同意','Ask before recording')}</p></div><div><small>SOURCES</small><p>${t('閱讀資料來源','Read the sources')}</p></div></div></section>${about()}${contribute()}`;}
 function relicHome(){return `<section class="relic-hero"><p class="eyebrow">THE SMALL PLACES THAT HOLD US TOGETHER</p><h1>${t('別讓地方的故事<br>停在我們這一代','Keep the stories<br>of a place alive.')}</h1><div class="relic-metrics"><span><b>03</b> ${t('地方故事','PLACE STORIES')}</span><span><b>02</b> ${t('網站語言','LANGUAGES')}</span><span><b>01</b> ${t('共同的城市','SHARED CITY')}</span></div>${button(link('#explore'),t('開始尋聖之旅','Begin the journey'))}<div class="relic-art"><img class="relic-trail" src="/geys4010-sacred-journey/test/designs/assets/relic-character-a.png" alt="" aria-hidden="true"><img class="relic-character" src="/geys4010-sacred-journey/test/designs/assets/relic-character-b.png" alt="${t('飛天人物插圖','Flying musician illustration')}"></div>${note()}</section><section class="relic-book section"><p class="eyebrow">WHY THESE PLACES, WHY US?</p><h2>${t('小地方<em>也有大故事</em>','Small places.<br><em>Remarkable stories.</em>')}</h2><p>${t('有些記憶，不在厚重的歷史書裏。它在街角的一炷香、村校的校車聲、街坊口中一條早已改變的小路。','Some memories live beyond history books: an offering at a street corner, a school bus, a lane remembered by a neighbour.')}</p><details class="unfold"><summary>${t('展開我們的記錄方式','Unfold our approach')} <span>＋</span></summary><p>${t('尋聖之旅以數碼檔案與社區參與連結地方。每篇故事從地方細節出發，附上圖像或資料來源。','Sacred Journey brings digital records and community participation together, sharing local stories with links to their sources and respecting community choices about publication.')}</p></details></section>${archive()}<section class="relic-gallery section"><div><p class="eyebrow">MEMORY, KEPT IN THE DETAILS</p><h2>${t('細節留下來<br><em>故事才會繼續</em>','Keep the details.<br><em>Let the story live.</em>')}</h2><p>${t('從圖像、文字，到有授權的口述記錄。讓每一段回憶，都有可以再次閱讀的地方。','Images, words and consented oral accounts give memory a place to be revisited.')}</p><a href="${link('#stories')}" class="under-link">${t('走進地方檔案','Explore the archive')} ↗</a></div><div class="relic-stacked"><img src="/geys4010-sacred-journey/test/designs/assets/relic-cave.jpeg" alt="${figureNote()}" loading="lazy"><img src="/geys4010-sacred-journey/test/designs/assets/relic-mural-b.jpg" alt="${figureNote()}" loading="lazy"><span class="archive-stamp">KEEP<br>MEMORY<br>ALIVE</span></div></section>${mapTeaser()}${about()}${contribute()}`;}
 function synthesisHome(){return `<section class="syn-hero"><div class="syn-hero-copy"><p class="eyebrow"><span class="status-dot"></span> HONG KONG · A LIVING ARCHIVE</p><h1>${t('街角有故事<br>等你<em>慢慢尋</em>','Small places.<br><em>Living stories.</em>')}</h1><p>${t('走近香港不常被看見的地方。<br>從一份檔案、一段回憶，讀懂我們生活的城市。','Discover Hong Kong’s overlooked places through records, recollections and the people who remember.')}</p><div class="hero-buttons">${button(link('#explore'),t('沿着地圖，開始尋聖','Begin with the map'))}<a class="under-link" href="${link('#stories')}">${t('先讀一段故事','Read a story first')} ↗</a></div><div class="syn-edition"><span>01—03</span><small>${t('繁體中文 / ENGLISH','繁體中文 / ENGLISH')}</small></div></div><div class="syn-collage"><div class="syn-photo-frame ppt-art"><img class="ppt-sky" src="/geys4010-sacred-journey/test/designs/assets/ppt-sun-clouds.png" alt="" aria-hidden="true"><img class="ppt-landscape" src="/geys4010-sacred-journey/test/designs/assets/ppt-landscape.png" alt="${t('山水與亭台插圖','Landscape and pavilion illustration')}"><span>PROJECT SKETCH / SACRED JOURNEY</span></div><div class="syn-record"><small>FROM THE ARCHIVE / 03</small><h3>${t('一條小巷<br>一段岸線的記憶','A lane, a shoreline,<br>a living memory.')}</h3><a href="${link('#story/ap-lei-chau')}">${t('翻開這段故事','Open this story')} ↗</a></div><div class="syn-seal" aria-hidden="true">尋<br>聖</div><p class="syn-caption">${t('山水與亭台 · 尋聖之旅插圖','Landscape and pavilion · Sacred Journey illustration')}</p></div></section><div class="syn-index"><span>${t('讓地方被看見，讓記憶有回音。','Places seen. Memories heard.')}</span><span>ARCHIVE ↔ COMMUNITY ↔ CITY</span></div>${archive()}${mapTeaser()}<section class="syn-manifesto section"><div class="manifesto-number">聽<span>LISTEN FIRST</span></div><div><p class="eyebrow">THE PEOPLE BEHIND THE PLACES</p><h2>${t('記錄一個地方<br>先聽住在那裏的人','To understand a place,<br>listen to its people.')}</h2><a class="under-link" href="${link('#about')}">${t('我們怎樣記錄','How we document')} ↗</a></div></section>${about()}${contribute()}`;}

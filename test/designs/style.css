@@ -223,6 +223,8 @@
 .trevonelle .hero-image.is-current{opacity:1}
 .trevonelle .hero-image[data-photo="wah-chi-path"]{object-position:center 54%}
 .trevonelle .hero-image[data-photo="hung-shing-temple"]{object-position:center 49%}
+.trevonelle .hero-image[data-photo="ap-lei-chau-03"]{object-position:center 52%}
+.trevonelle .hero-image[data-photo="kwok-kam-kee-05"],.trevonelle .hero-image[data-photo="sing-hing-01"]{object-position:center 42%}
 .trevonelle .card-photo img,.trevonelle .trev-postcard>img{filter:none;opacity:1;object-position:center 60%}
 .trevonelle .card-body>.image-note{font-size:10px;line-height:1.6;margin:0 0 14px;color:#606b70}
 .trevonelle .hero-caption{display:flex;align-items:baseline;gap:6px 20px;line-height:1.6;flex-wrap:wrap}
