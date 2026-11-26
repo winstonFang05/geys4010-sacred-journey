@@ -1,6 +1,6 @@
 # Hong Kong photograph credits
 
-These originals are distributed unchanged. CSS crops the display; the sources' dates do not imply current conditions. The three photographs listed below also have 1800-pixel-wide WebP copies for the homepage slideshow. The seven additional slideshow photographs are unchanged copies of the website’s 1280-pixel-wide New Territories images. Their sources, photographers and licences are listed on the test site’s image credits page.
+These originals are distributed unchanged. CSS crops the display; the sources' dates do not imply current conditions. The three photographs listed below also have 1800-pixel-wide WebP copies for the homepage slideshow. The other slideshow photographs are unchanged copies of images already sized for the website’s New Territories stories and story albums. Their sources, photographers and licences are listed on the test site’s image credits page.
 
 | File | Place and photographer | Source and licence |
 | --- | --- | --- |
